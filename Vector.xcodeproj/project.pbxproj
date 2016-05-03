@@ -37,6 +37,7 @@
 		32F2E61B1C230D4D003BDEA5 /* PublicRoomsDirectoryDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F2E61A1C230D4D003BDEA5 /* PublicRoomsDirectoryDataSource.m */; };
 		551C6B831CD40116001AB73C /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551C6B821CD40116001AB73C /* SnapshotHelper.swift */; };
 		552478A51CD3F3E000DF6367 /* VectorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552478A41CD3F3E000DF6367 /* VectorUITests.swift */; };
+		55C8AC2D1CD8E12D00A6FCF4 /* rain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 55C8AC2C1CD8E12D00A6FCF4 /* rain.jpg */; };
 		71046D5E1C0C639300DCA984 /* RoomTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71046D5D1C0C639300DCA984 /* RoomTitleView.m */; };
 		71046D601C0C86C600DCA984 /* RoomTitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71046D5F1C0C86C600DCA984 /* RoomTitleView.xib */; };
 		71352D591C10569F001D50B0 /* AvatarGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 71352D581C10569F001D50B0 /* AvatarGenerator.m */; };
@@ -309,6 +310,7 @@
 		552478A21CD3F3E000DF6367 /* VectorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VectorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		552478A41CD3F3E000DF6367 /* VectorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VectorUITests.swift; sourceTree = "<group>"; };
 		552478A61CD3F3E000DF6367 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55C8AC2C1CD8E12D00A6FCF4 /* rain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rain.jpg; sourceTree = SOURCE_ROOT; };
 		71046D5C1C0C639300DCA984 /* RoomTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoomTitleView.h; path = RoomTitle/RoomTitleView.h; sourceTree = "<group>"; };
 		71046D5D1C0C639300DCA984 /* RoomTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoomTitleView.m; path = RoomTitle/RoomTitleView.m; sourceTree = "<group>"; };
 		71046D5F1C0C86C600DCA984 /* RoomTitleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RoomTitleView.xib; path = RoomTitle/RoomTitleView.xib; sourceTree = "<group>"; };
@@ -1055,6 +1057,7 @@
 		F0DD7D1B1B7AA8C900C4BE02 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				55C8AC2C1CD8E12D00A6FCF4 /* rain.jpg */,
 				F03FBCD41CBC49B6000A5770 /* disclosure_icon.png */,
 				F03FBCD51CBC49B6000A5770 /* disclosure_icon@2x.png */,
 				F03FBCD61CBC49B6000A5770 /* disclosure_icon@3x.png */,
@@ -1385,6 +1388,7 @@
 				F056418D1C7CBEBD002276ED /* group@2x.png in Resources */,
 				F0026B501C916E68001D2C04 /* favourite@2x.png in Resources */,
 				71EBE66E1C04C4D300E7D953 /* RoomActivitiesView.xib in Resources */,
+				55C8AC2D1CD8E12D00A6FCF4 /* rain.jpg in Resources */,
 				717928461C03852C00407D96 /* TableViewCellSeparator.xib in Resources */,
 				F02528F31C11B6FC00E1FE1B /* remove_icon@2x.png in Resources */,
 				F09EE0091C5134BE0078712F /* RoomOutgoingTextMsgWithPaginationTitleWithoutSenderNameBubbleCell.xib in Resources */,
@@ -1708,7 +1712,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1744,7 +1748,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
