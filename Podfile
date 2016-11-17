@@ -8,14 +8,14 @@ target "Vector" do
 
 # Different flavours of pods to MatrixKit
 # The tagged version on which this version of Vector has been built
-pod 'MatrixKit', '0.3.19'
+#pod 'MatrixKit', '0.3.19'
 
 # The lastest release available on the CocoaPods repository 
 #pod 'MatrixKit'
 
 # The develop branch version
 #pod 'MatrixSDK', :git => 'https://github.com/matrix-org/matrix-ios-sdk.git', :branch => 'develop'
-#pod 'MatrixKit', :git => 'https://github.com/matrix-org/matrix-ios-kit.git', :branch => 'develop'
+pod 'MatrixKit', :git => 'https://github.com/matrix-org/matrix-ios-kit.git', :branch => 'e2e_release'
 
 # The one used for developing both MatrixSDK and MatrixKit
 # Note that MatrixSDK must be cloned into a folder called matrix-ios-sdk next to the MatrixKit folder
