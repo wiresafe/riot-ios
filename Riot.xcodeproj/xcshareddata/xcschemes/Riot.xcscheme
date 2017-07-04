@@ -52,6 +52,16 @@
                ReferencedContainer = "container:Riot.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "55FA7C481F0A978B0097F832"
+               BuildableName = "RiotUITests.xctest"
+               BlueprintName = "RiotUITests"
+               ReferencedContainer = "container:Riot.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

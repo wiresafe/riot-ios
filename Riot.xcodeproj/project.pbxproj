@@ -18,6 +18,8 @@
 		32D392191EB9B7AB009A2BAF /* DirectoryServerDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32D392171EB9B7AB009A2BAF /* DirectoryServerDetailTableViewCell.xib */; };
 		32FD0A3D1EB0CD9B0072B066 /* BugReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FD0A3B1EB0CD9B0072B066 /* BugReportViewController.m */; };
 		32FD0A3E1EB0CD9B0072B066 /* BugReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32FD0A3C1EB0CD9B0072B066 /* BugReportViewController.xib */; };
+		55FA7C4C1F0A978B0097F832 /* RiotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA7C4B1F0A978B0097F832 /* RiotUITests.swift */; };
+		55FA7C541F0A979E0097F832 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FA7C531F0A979E0097F832 /* SnapshotHelper.swift */; };
 		E2EAC1A4FBD6FE5228584591 /* libPods-Riot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D8737F782E108CFD6908691 /* libPods-Riot.a */; };
 		F02C1A861E8EB04C0045A404 /* PeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F02C1A841E8EB04C0045A404 /* PeopleViewController.m */; };
 		F05BD79E1E7AEBF800C69941 /* UnifiedSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F05BD79D1E7AEBF800C69941 /* UnifiedSearchViewController.m */; };
@@ -462,6 +464,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		55FA7C4E1F0A978B0097F832 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F094A99A1B78D8F000B1FBBF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F094A9A11B78D8F000B1FBBF;
+			remoteInfo = Riot;
+		};
 		F094A9BF1B78D8F000B1FBBF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F094A99A1B78D8F000B1FBBF /* Project object */;
@@ -489,6 +498,10 @@
 		32FD0A3A1EB0CD9B0072B066 /* BugReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BugReportViewController.h; sourceTree = "<group>"; };
 		32FD0A3B1EB0CD9B0072B066 /* BugReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BugReportViewController.m; sourceTree = "<group>"; };
 		32FD0A3C1EB0CD9B0072B066 /* BugReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BugReportViewController.xib; sourceTree = "<group>"; };
+		55FA7C491F0A978B0097F832 /* RiotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RiotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		55FA7C4B1F0A978B0097F832 /* RiotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiotUITests.swift; sourceTree = "<group>"; };
+		55FA7C4D1F0A978B0097F832 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55FA7C531F0A979E0097F832 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		7D8737F782E108CFD6908691 /* libPods-Riot.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Riot.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F02C1A831E8EB04C0045A404 /* PeopleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeopleViewController.h; sourceTree = "<group>"; };
 		F02C1A841E8EB04C0045A404 /* PeopleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeopleViewController.m; sourceTree = "<group>"; };
@@ -1057,6 +1070,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		55FA7C461F0A978B0097F832 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F094A99F1B78D8F000B1FBBF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1086,6 +1106,16 @@
 				3205ED831E97725E003D65FA /* DirectoryServerTableViewCell.xib */,
 			);
 			path = Directory;
+			sourceTree = "<group>";
+		};
+		55FA7C4A1F0A978B0097F832 /* RiotUITests */ = {
+			isa = PBXGroup;
+			children = (
+				55FA7C531F0A979E0097F832 /* SnapshotHelper.swift */,
+				55FA7C4B1F0A978B0097F832 /* RiotUITests.swift */,
+				55FA7C4D1F0A978B0097F832 /* Info.plist */,
+			);
+			path = RiotUITests;
 			sourceTree = "<group>";
 		};
 		6567B0BBF3C05D7F7A7F79CC /* Frameworks */ = {
@@ -1928,6 +1958,7 @@
 			children = (
 				F083BB081E7009EC00A9B29C /* Riot */,
 				F083BB021E7005FD00A9B29C /* RiotTests */,
+				55FA7C4A1F0A978B0097F832 /* RiotUITests */,
 				F094A9A31B78D8F000B1FBBF /* Products */,
 				E1451F540F8BC02A7FB7AA31 /* Pods */,
 				6567B0BBF3C05D7F7A7F79CC /* Frameworks */,
@@ -1939,6 +1970,7 @@
 			children = (
 				F094A9A21B78D8F000B1FBBF /* Riot.app */,
 				F094A9BE1B78D8F000B1FBBF /* RiotTests.xctest */,
+				55FA7C491F0A978B0097F832 /* RiotUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1946,6 +1978,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		55FA7C481F0A978B0097F832 /* RiotUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 55FA7C521F0A978B0097F832 /* Build configuration list for PBXNativeTarget "RiotUITests" */;
+			buildPhases = (
+				55FA7C451F0A978B0097F832 /* Sources */,
+				55FA7C461F0A978B0097F832 /* Frameworks */,
+				55FA7C471F0A978B0097F832 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				55FA7C4F1F0A978B0097F832 /* PBXTargetDependency */,
+			);
+			name = RiotUITests;
+			productName = RiotUITests;
+			productReference = 55FA7C491F0A978B0097F832 /* RiotUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		F094A9A11B78D8F000B1FBBF /* Riot */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F094A9C81B78D8F000B1FBBF /* Build configuration list for PBXNativeTarget "Riot" */;
@@ -1990,9 +2040,15 @@
 		F094A99A1B78D8F000B1FBBF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = matrix.org;
 				TargetAttributes = {
+					55FA7C481F0A978B0097F832 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F094A9A11B78D8F000B1FBBF;
+					};
 					F094A9A11B78D8F000B1FBBF = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = 7J4U792NQT;
@@ -2025,11 +2081,19 @@
 			targets = (
 				F094A9A11B78D8F000B1FBBF /* Riot */,
 				F094A9BD1B78D8F000B1FBBF /* RiotTests */,
+				55FA7C481F0A978B0097F832 /* RiotUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		55FA7C471F0A978B0097F832 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F094A9A01B78D8F000B1FBBF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2420,6 +2484,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		55FA7C451F0A978B0097F832 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				55FA7C4C1F0A978B0097F832 /* RiotUITests.swift in Sources */,
+				55FA7C541F0A979E0097F832 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F094A99E1B78D8F000B1FBBF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2563,6 +2636,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		55FA7C4F1F0A978B0097F832 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F094A9A11B78D8F000B1FBBF /* Riot */;
+			targetProxy = 55FA7C4E1F0A978B0097F832 /* PBXContainerItemProxy */;
+		};
 		F094A9C01B78D8F000B1FBBF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F094A9A11B78D8F000B1FBBF /* Riot */;
@@ -2614,6 +2692,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		55FA7C501F0A978B0097F832 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = RiotUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = im.vector.RiotUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Riot;
+			};
+			name = Debug;
+		};
+		55FA7C511F0A978B0097F832 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				INFOPLIST_FILE = RiotUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = im.vector.RiotUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Riot;
+			};
+			name = Release;
+		};
 		F094A9C61B78D8F000B1FBBF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2775,6 +2891,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		55FA7C521F0A978B0097F832 /* Build configuration list for PBXNativeTarget "RiotUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				55FA7C501F0A978B0097F832 /* Debug */,
+				55FA7C511F0A978B0097F832 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		F094A99D1B78D8F000B1FBBF /* Build configuration list for PBXProject "Riot" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

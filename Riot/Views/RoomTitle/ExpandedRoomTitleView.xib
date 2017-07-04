@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -43,14 +43,16 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ou0-3Z-weL">
                     <rect key="frame" x="282" y="184" width="36" height="17"/>
-                    <accessibility key="accessibilityConfiguration" identifier="RoomMembers"/>
+                    <accessibility key="accessibilityConfiguration" identifier="RoomMembers" label="RoomMembers"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="members_list_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="S3Y-wJ-HOe">
                     <rect key="frame" x="260" y="185.5" width="15" height="15"/>
-                    <accessibility key="accessibilityConfiguration" identifier="RoomMembersDetailsIcon"/>
+                    <accessibility key="accessibilityConfiguration" identifier="RoomMembersDetailsIcon" label="RoomMembersDetailsIcon">
+                        <bool key="isElement" value="YES"/>
+                    </accessibility>
                     <constraints>
                         <constraint firstAttribute="width" constant="15" id="XTx-6p-2wB"/>
                         <constraint firstAttribute="height" constant="15" id="tXh-eB-ave"/>
@@ -144,6 +146,6 @@
     </objects>
     <resources>
         <image name="add_participant.png" width="58" height="58"/>
-        <image name="members_list_icon.png" width="12" height="12"/>
+        <image name="members_list_icon.png" width="15" height="15"/>
     </resources>
 </document>
