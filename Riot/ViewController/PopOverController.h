@@ -1,0 +1,17 @@
+//
+//  PopOverController.h
+//  PopOverDemo
+//
+//  Created by Rajeesh R Kartha on 09/09/15.
+//  Copyright (c) 2015 Rapidvalue. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+@protocol popOverDelegate <NSObject>
+- (void)cellClicked:(NSString*)text;
+@end
+@interface PopOverController : UIViewController
+@property(weak,nonatomic) IBOutlet id <popOverDelegate> delegate;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil WithArray:(NSArray *)listDict;
+
+@end

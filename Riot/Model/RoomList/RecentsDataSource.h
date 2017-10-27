@@ -26,6 +26,7 @@
 typedef enum : NSUInteger
 {
     RecentsDataSourceModeHome,
+    RecentsDataSourceModeWireTransfer,
     RecentsDataSourceModeFavourites,
     RecentsDataSourceModePeople,
     RecentsDataSourceModeRooms

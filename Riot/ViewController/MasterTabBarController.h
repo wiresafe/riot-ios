@@ -22,15 +22,17 @@
 #import "FavouritesViewController.h"
 #import "PeopleViewController.h"
 #import "RoomsViewController.h"
+#import "WireTransferViewController.h"
 
 #import "RoomViewController.h"
 #import "ContactDetailsViewController.h"
 
 #define TABBAR_HOME_INDEX         0
-#define TABBAR_FAVOURITES_INDEX   1
-#define TABBAR_PEOPLE_INDEX       2
-#define TABBAR_ROOMS_INDEX        3
-#define TABBAR_COUNT              4
+#define TABBAR_WIRETRANSFER_INDEX 1
+#define TABBAR_FAVOURITES_INDEX   2
+#define TABBAR_PEOPLE_INDEX       3
+#define TABBAR_ROOMS_INDEX        4
+#define TABBAR_COUNT              5
 
 @interface MasterTabBarController : UITabBarController
 
@@ -116,6 +118,7 @@
 @property (nonatomic, readonly) FavouritesViewController *favouritesViewController;
 @property (nonatomic, readonly) PeopleViewController *peopleViewController;
 @property (nonatomic, readonly) RoomsViewController *roomsViewController;
+@property (nonatomic, readonly) WireTransferViewController * wireTransferViewController;
 
 // References on the currently selected room and its view controller
 @property (nonatomic, readonly) RoomViewController *currentRoomViewController;

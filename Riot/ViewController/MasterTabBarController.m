@@ -67,12 +67,14 @@
 
     // Retrieve the all view controllers
     _homeViewController = [self.viewControllers objectAtIndex:TABBAR_HOME_INDEX];
+    _wireTransferViewController  = [self.viewControllers objectAtIndex:TABBAR_ROOMS_INDEX];
     _favouritesViewController = [self.viewControllers objectAtIndex:TABBAR_FAVOURITES_INDEX];
     _peopleViewController = [self.viewControllers objectAtIndex:TABBAR_PEOPLE_INDEX];
     _roomsViewController = [self.viewControllers objectAtIndex:TABBAR_ROOMS_INDEX];
     
+    
     // Sanity check
-    NSAssert(_homeViewController && _favouritesViewController && _peopleViewController && _roomsViewController, @"Something wrong in Main.storyboard");
+    NSAssert(_homeViewController && _wireTransferViewController && _favouritesViewController && _peopleViewController && _roomsViewController, @"Something wrong in Main.storyboard");
 
     // Adjust the display of the icons in the tabbar.
     for (UITabBarItem *tabBarItem in self.tabBar.items)
@@ -180,6 +182,7 @@
     mxSessionArray = nil;
     
     _homeViewController = nil;
+    _wireTransferViewController = nil;
     _favouritesViewController = nil;
     _peopleViewController = nil;
     _roomsViewController = nil;
@@ -224,6 +227,7 @@
         recentsDataSource = [[RecentsDataSource alloc] initWithMatrixSession:mainSession];
         
         [_homeViewController displayList:recentsDataSource];
+       // [_wireTransferViewController displayList:recentsDataSource];
         [_favouritesViewController displayList:recentsDataSource];
         [_peopleViewController displayList:recentsDataSource];
         [_roomsViewController displayList:recentsDataSource];
@@ -235,6 +239,9 @@
         {
             case TABBAR_HOME_INDEX:
                 break;
+            case TABBAR_WIRETRANSFER_INDEX:
+                recentsDataSourceDelegate = _wireTransferViewController;
+                recentsDataSourceMode = RecentsDataSourceModeWireTransfer;
             case TABBAR_FAVOURITES_INDEX:
                 recentsDataSourceDelegate = _favouritesViewController;
                 recentsDataSourceMode = RecentsDataSourceModeFavourites;
@@ -313,6 +320,7 @@
         [[NSNotificationCenter defaultCenter] removeObserver:self name:kMXSessionStateDidChangeNotification object:nil];
         
         [_homeViewController displayList:nil];
+      //  [_wireTransferViewController displayList:nil];
         [_favouritesViewController displayList:nil];
         [_peopleViewController displayList:nil];
         [_roomsViewController displayList:nil];
@@ -809,6 +817,10 @@
         else if (item.tag == TABBAR_FAVOURITES_INDEX)
         {
             [self.favouritesViewController scrollToNextRoomWithMissedNotifications];
+        }
+        else if (item.tag == TABBAR_WIRETRANSFER_INDEX)
+        {
+            [self.wireTransferViewController scrollToNextRoomWithMissedNotifications];
         }
     }
 }
