@@ -297,8 +297,12 @@ NSString *const kRecentsDataSourceTapOnDirectoryServerChange = @"kRecentsDataSou
     {
         count = peopleCellDataArray.count ? peopleCellDataArray.count : 1;
     }
-    else if (section == conversationSection && !(shrinkedSectionsBitMask & RECENTSDATASOURCE_SECTION_CONVERSATIONS))
+    else if (section == conversationSection && !(shrinkedSectionsBitMask & RECENTSDATASOURCE_SECTION_CONVERSATIONS))        
     {
+//        NSData *dataSave = [NSKeyedArchiver archivedDataWithRootObject:conversationCellDataArray];
+//        [[NSUserDefaults standardUserDefaults] setObject:dataSave forKey:@"conversationArray"];
+//        [[NSUserDefaults standardUserDefaults] synchronize];
+        
         count = conversationCellDataArray.count ? conversationCellDataArray.count : 1;
     }
     else if (section == directorySection && !(shrinkedSectionsBitMask & RECENTSDATASOURCE_SECTION_DIRECTORY))
@@ -1074,6 +1078,29 @@ NSString *const kRecentsDataSourceTapOnDirectoryServerChange = @"kRecentsDataSou
             MXRoom* room = recentCellDataStoring.roomSummary.room;
             
             if (_recentsDataSourceMode == RecentsDataSourceModeHome)
+            {
+                if (room.accountData.tags[kMXRoomTagFavourite])
+                {
+                    [favoriteCellDataArray addObject:recentCellDataStoring];
+                }
+                else if (room.accountData.tags[kMXRoomTagLowPriority])
+                {
+                    [lowPriorityCellDataArray addObject:recentCellDataStoring];
+                }
+                else if (room.state.membership == MXMembershipInvite)
+                {
+                    [invitesCellDataArray addObject:recentCellDataStoring];
+                }
+                else if (room.isDirect)
+                {
+                    [peopleCellDataArray addObject:recentCellDataStoring];
+                }
+                else
+                {
+                    [conversationCellDataArray addObject:recentCellDataStoring];
+                }
+            }
+            else if (_recentsDataSourceMode == RecentsDataSourceModeWireTransfer)
             {
                 if (room.accountData.tags[kMXRoomTagFavourite])
                 {

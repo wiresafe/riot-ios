@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Riot.im</string>
+	<string>WireSafe</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -22,24 +22,24 @@
 	<string>1</string>
 	<key>NSExtension</key>
 	<dict>
-		<key>NSExtensionPrincipalClass</key>
-		<string>SharePresentingViewController</string>
 		<key>NSExtensionAttributes</key>
 		<dict>
 			<key>NSExtensionActivationRule</key>
 			<dict>
-				<key>NSExtensionActivationSupportsMovieWithMaxCount</key>
-				<integer>0</integer>
 				<key>NSExtensionActivationSupportsImageWithMaxCount</key>
 				<integer>0</integer>
-				<key>NSExtensionActivationSupportsWebURLWithMaxCount</key>
+				<key>NSExtensionActivationSupportsMovieWithMaxCount</key>
 				<integer>0</integer>
 				<key>NSExtensionActivationSupportsText</key>
 				<false/>
+				<key>NSExtensionActivationSupportsWebURLWithMaxCount</key>
+				<integer>0</integer>
 			</dict>
 		</dict>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.share-services</string>
+		<key>NSExtensionPrincipalClass</key>
+		<string>SharePresentingViewController</string>
 	</dict>
 </dict>
 </plist>

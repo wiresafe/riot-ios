@@ -78,6 +78,9 @@
  
  @param roomPreviewData the data for the room preview.
  */
+- (void)selectRoomWithId:(NSString*)roomId andEventId:(NSString*)eventId inMatrixSession:(MXSession*)matrixSession withMessages:(NSArray *)message;
+
+ 
 - (void)showRoomPreview:(RoomPreviewData*)roomPreviewData;
 
 /**

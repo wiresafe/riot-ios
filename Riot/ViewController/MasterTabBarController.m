@@ -27,7 +27,8 @@
 @interface MasterTabBarController ()
 {
     // Array of `MXSession` instances.
-    NSMutableArray *mxSessionArray;    
+    NSMutableArray *mxSessionArray;
+    NSArray * messages;
     
     // Tell whether the authentication screen is preparing.
     BOOL isAuthViewControllerPreparing;
@@ -67,7 +68,7 @@
 
     // Retrieve the all view controllers
     _homeViewController = [self.viewControllers objectAtIndex:TABBAR_HOME_INDEX];
-    _wireTransferViewController  = [self.viewControllers objectAtIndex:TABBAR_ROOMS_INDEX];
+    _wireTransferViewController  = [self.viewControllers objectAtIndex:TABBAR_WIRETRANSFER_INDEX];
     _favouritesViewController = [self.viewControllers objectAtIndex:TABBAR_FAVOURITES_INDEX];
     _peopleViewController = [self.viewControllers objectAtIndex:TABBAR_PEOPLE_INDEX];
     _roomsViewController = [self.viewControllers objectAtIndex:TABBAR_ROOMS_INDEX];
@@ -227,7 +228,7 @@
         recentsDataSource = [[RecentsDataSource alloc] initWithMatrixSession:mainSession];
         
         [_homeViewController displayList:recentsDataSource];
-       // [_wireTransferViewController displayList:recentsDataSource];
+        [_wireTransferViewController displayList:recentsDataSource];
         [_favouritesViewController displayList:recentsDataSource];
         [_peopleViewController displayList:recentsDataSource];
         [_roomsViewController displayList:recentsDataSource];
@@ -320,7 +321,7 @@
         [[NSNotificationCenter defaultCenter] removeObserver:self name:kMXSessionStateDidChangeNotification object:nil];
         
         [_homeViewController displayList:nil];
-      //  [_wireTransferViewController displayList:nil];
+        [_wireTransferViewController displayList:nil];
         [_favouritesViewController displayList:nil];
         [_peopleViewController displayList:nil];
         [_roomsViewController displayList:nil];
@@ -394,7 +395,30 @@
         [self releaseSelectedItem];
     }
 }
+- (void)selectRoomWithId:(NSString*)roomId andEventId:(NSString*)eventId inMatrixSession:(MXSession*)matrixSession withMessages:(NSArray *)message
 
+{   messages = message;
+    if (_selectedRoomId && [_selectedRoomId isEqualToString:roomId]
+        && _selectedEventId && [_selectedEventId isEqualToString:eventId]
+        && _selectedRoomSession && _selectedRoomSession == matrixSession)
+    {
+        // Nothing to do
+        return;
+    }
+    
+    _selectedRoomId = roomId;
+    _selectedEventId = eventId;
+    _selectedRoomSession = matrixSession;
+    
+    if (roomId && matrixSession)
+    {
+        [self performSegueWithIdentifier:@"showRoomDetails" sender:self];
+    }
+    else
+    {
+        [self releaseSelectedItem];
+    }
+}
 - (void)showRoomPreview:(RoomPreviewData *)roomPreviewData
 {
     _selectedRoomPreviewData = roomPreviewData;
@@ -553,11 +577,29 @@
                         // LIVE: Show the room live timeline managed by MXKRoomDataSourceManager
                         MXKRoomDataSourceManager *roomDataSourceManager = [MXKRoomDataSourceManager sharedManagerForMatrixSession:_selectedRoomSession];
                         roomDataSource = [roomDataSourceManager roomDataSourceForRoom:_selectedRoomId create:YES];
+                        if(messages){
+                           
+                           // NSLog(@"%@",myString);
+                            NSString * bankName = [messages objectAtIndex:0];
+                            NSString* bankAddress = [messages objectAtIndex:1];
+                            NSString * AccountOwnerName = [messages objectAtIndex:2];
+                            NSString* BankRoutingNumber = [messages objectAtIndex:3];
+                            NSString* BankaccNumber = [messages objectAtIndex:4];
+                            NSString *my_string =[NSString stringWithFormat:@"Wire Transfer Details \nBank Name: %@ \n Bank Address: %@ \n Account Owner Name: %@ \n Bank Routing Number:%@ \n Bank Account Number:%@ \n", bankName, bankAddress, AccountOwnerName , BankRoutingNumber, BankaccNumber];
+                           // NSString * mystring =@"Wire Transfer Details %@ \nBank Name:";
+                         //   mystring stringByAppendingString:
+                            [roomDataSource sendTextMessage:my_string success:^(NSString *eventId) {
+                                NSLog(@"success.....");
+                            } failure:^(NSError *error) {
+                                NSLog(@"failed");
+                            }];
+                        }
                     }
                     else
                     {
                         // Open the room on the requested event
                         roomDataSource = [[RoomDataSource alloc] initWithRoomId:_selectedRoomId initialEventId:_selectedEventId andMatrixSession:_selectedRoomSession];
+                                               
                         [roomDataSource finalizeInitialization];
                         
                         ((RoomDataSource*)roomDataSource).markTimelineInitialEvent = YES;

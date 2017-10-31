@@ -2499,18 +2499,21 @@
 				TargetAttributes = {
 					24CBEC4D1F0EAD310093EABB = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 7J4U792NQT;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 3786CYUYT4;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 0;
 							};
 						};
 					};
 					F094A9A11B78D8F000B1FBBF = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = 7J4U792NQT;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 3786CYUYT4;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -2522,7 +2525,8 @@
 					};
 					F094A9BD1B78D8F000B1FBBF = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = 7J4U792NQT;
+						DevelopmentTeam = 3786CYUYT4;
+						ProvisioningStyle = Manual;
 						TestTargetID = F094A9A11B78D8F000B1FBBF;
 					};
 				};
@@ -3487,14 +3491,18 @@
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CODE_SIGN_ENTITLEMENTS = RiotShareExtension/RiotShareExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Casey LeBlanc (3786CYUYT4)";
+				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 7J4U792NQT;
+				DEVELOPMENT_TEAM = 3786CYUYT4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = RiotShareExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = im.vector.app.shareExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.newventureescrow.VentureTrac.wiresafe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6a6f6188-1b03-4364-93c7-058ce2a66a11";
+				PROVISIONING_PROFILE_SPECIFIER = wiresafeEXtension;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -3509,15 +3517,19 @@
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CODE_SIGN_ENTITLEMENTS = RiotShareExtension/RiotShareExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Casey LeBlanc (3786CYUYT4)";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 7J4U792NQT;
+				DEVELOPMENT_TEAM = 3786CYUYT4;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = RiotShareExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = im.vector.app.shareExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.newventureescrow.VentureTrac.wiresafe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6a6f6188-1b03-4364-93c7-058ce2a66a11";
+				PROVISIONING_PROFILE_SPECIFIER = wiresafeEXtension;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -3541,8 +3553,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: RapidValue Solutions Inc";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: RapidValue Solutions Inc";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Casey LeBlanc (3786CYUYT4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Casey LeBlanc (3786CYUYT4)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -3564,7 +3576,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "5290977d-af19-4a7a-9f2a-70e9969dea00";
+				PROVISIONING_PROFILE = "278cdfa4-4f81-4574-86c4-646b7aeb8b58";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3589,8 +3601,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: RapidValue Solutions Inc";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: RapidValue Solutions Inc";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Casey LeBlanc (3786CYUYT4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Casey LeBlanc (3786CYUYT4)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -3604,7 +3616,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "5290977d-af19-4a7a-9f2a-70e9969dea00";
+				PROVISIONING_PROFILE = "278cdfa4-4f81-4574-86c4-646b7aeb8b58";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -3617,9 +3629,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Riot/Riot.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Arun Krishna (F4DJRGN9M4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Arun Krishna (F4DJRGN9M4)";
-				DEVELOPMENT_TEAM = 7J4U792NQT;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Casey LeBlanc (3786CYUYT4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Casey LeBlanc (3786CYUYT4)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 3786CYUYT4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3629,9 +3642,10 @@
 				INFOPLIST_FILE = Riot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = im.vector.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.newventureescrow.VentureTrac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5290977d-af19-4a7a-9f2a-70e9969dea00";
+				PROVISIONING_PROFILE = "16d3cbcf-aa99-4776-b8a1-0b56ec7ff02e";
+				PROVISIONING_PROFILE_SPECIFIER = NewVentureTracAdhocProvisioning;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -3642,8 +3656,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Riot/Riot.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Arun Krishna (F4DJRGN9M4)";
-				DEVELOPMENT_TEAM = 7J4U792NQT;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Casey LeBlanc (3786CYUYT4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Casey LeBlanc (3786CYUYT4)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 3786CYUYT4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3653,9 +3669,10 @@
 				INFOPLIST_FILE = Riot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = im.vector.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.newventureescrow.VentureTrac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5290977d-af19-4a7a-9f2a-70e9969dea00";
+				PROVISIONING_PROFILE = "16d3cbcf-aa99-4776-b8a1-0b56ec7ff02e";
+				PROVISIONING_PROFILE_SPECIFIER = NewVentureTracAdhocProvisioning;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -3664,7 +3681,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 7J4U792NQT;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 3786CYUYT4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -3677,6 +3696,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.matrix.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Riot.app/Riot";
 			};
 			name = Debug;
@@ -3685,7 +3705,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 7J4U792NQT;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 3786CYUYT4;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -3694,6 +3716,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.matrix.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Riot.app/Riot";
 			};
 			name = Release;

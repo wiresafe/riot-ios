@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "RecentsViewController.h"
 
-@interface WireTransferViewController :UIViewController
+@interface WireTransferViewController :RecentsViewController<UITextFieldDelegate>
 
 - (void)scrollToNextRoomWithMissedNotifications;
 @end

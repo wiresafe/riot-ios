@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RecentCellData.h"
 @protocol popOverDelegate <NSObject>
-- (void)cellClicked:(NSString*)text;
+- (void)cellClicked:(RecentCellData*)cellData;
 @end
 @interface PopOverController : UIViewController
 @property(weak,nonatomic) IBOutlet id <popOverDelegate> delegate;

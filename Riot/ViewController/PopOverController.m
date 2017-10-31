@@ -8,6 +8,7 @@
 
 #import "PopOverController.h"
 
+
 @interface PopOverController ()
 {
     NSArray *contentArray;
@@ -39,7 +40,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [UITableViewCell new];
-    cell.textLabel.text = contentArray[indexPath.row];
+    RecentCellData *cellData = contentArray[indexPath.row];
+    
+    cell.textLabel.text = cellData.roomDisplayname;
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
