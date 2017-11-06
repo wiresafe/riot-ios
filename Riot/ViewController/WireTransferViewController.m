@@ -47,7 +47,7 @@
 -(void)viewDidLoad{
     self.navigationController.navigationItem.title = @"Wire transfer";
     [sendToRoomTextField addTarget:self action:@selector(didclickondropdown) forControlEvents:UIControlEventAllEvents];
- //   self.recentsTableView.tag = RecentsDataSourceModeHome;
+    self.recentsTableView.tag = RecentsDataSourceModeWireTransfer;
     [self addPlusButton];
     
    
@@ -143,11 +143,13 @@
     sendToRoomTextField.text = cellDatas.roomDisplayname;
 }
 - (void)displayList:(MXKRecentsDataSource *)listDataSource
-{     if ([listDataSource isKindOfClass:RecentsDataSource.class])
-{
-    recentsDataSource = (RecentsDataSource*)listDataSource;
-}
-   
+{   [super displayList:listDataSource];
+    if ([listDataSource isKindOfClass:RecentsDataSource.class])
+        {
+                recentsDataSource = (RecentsDataSource*)listDataSource;
+        }
+    self.recentsTableView.dataSource = (id)self;
+    
 }
 - (void)scrollToNextRoomWithMissedNotifications
 {

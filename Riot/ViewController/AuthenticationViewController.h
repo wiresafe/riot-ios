@@ -17,6 +17,7 @@
 
 #import <MatrixKit/MatrixKit.h>
 
+
 @interface AuthenticationViewController : MXKAuthenticationViewController <MXKAuthenticationViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;

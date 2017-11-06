@@ -42,7 +42,7 @@
 
 #import "CallViewController.h"
 
-//#define MX_CALL_STACK_OPENWEBRTC
+
 #ifdef MX_CALL_STACK_OPENWEBRTC
 #import <MatrixOpenWebRTCWrapper/MatrixOpenWebRTCWrapper.h>
 #endif
@@ -274,6 +274,10 @@ NSString *const kAppDelegateNetworkStatusDidChangeNotification = @"kAppDelegateN
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // [START firebase_configure]
+    // Use Firebase library to configure APIs
+  //  [FIRApp configure];
+    // [END firebase_configure]
 #ifdef DEBUG
     // log the full launchOptions only in DEBUG
     NSLog(@"[AppDelegate] didFinishLaunchingWithOptions: %@", launchOptions);

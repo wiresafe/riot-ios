@@ -578,16 +578,12 @@
                         MXKRoomDataSourceManager *roomDataSourceManager = [MXKRoomDataSourceManager sharedManagerForMatrixSession:_selectedRoomSession];
                         roomDataSource = [roomDataSourceManager roomDataSourceForRoom:_selectedRoomId create:YES];
                         if(messages){
-                           
-                           // NSLog(@"%@",myString);
                             NSString * bankName = [messages objectAtIndex:0];
-                            NSString* bankAddress = [messages objectAtIndex:1];
-                            NSString * AccountOwnerName = [messages objectAtIndex:2];
-                            NSString* BankRoutingNumber = [messages objectAtIndex:3];
-                            NSString* BankaccNumber = [messages objectAtIndex:4];
+                            NSString* bankAddress = [messages objectAtIndex:4];
+                            NSString * AccountOwnerName = [messages objectAtIndex:3];
+                            NSString* BankRoutingNumber = [messages objectAtIndex:2];
+                            NSString* BankaccNumber = [messages objectAtIndex:1];
                             NSString *my_string =[NSString stringWithFormat:@"Wire Transfer Details \nBank Name: %@ \n Bank Address: %@ \n Account Owner Name: %@ \n Bank Routing Number:%@ \n Bank Account Number:%@ \n", bankName, bankAddress, AccountOwnerName , BankRoutingNumber, BankaccNumber];
-                           // NSString * mystring =@"Wire Transfer Details %@ \nBank Name:";
-                         //   mystring stringByAppendingString:
                             [roomDataSource sendTextMessage:my_string success:^(NSString *eventId) {
                                 NSLog(@"success.....");
                             } failure:^(NSError *error) {

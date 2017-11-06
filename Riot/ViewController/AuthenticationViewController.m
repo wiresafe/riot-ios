@@ -39,8 +39,9 @@
      Observe kRiotDesignValuesDidChangeThemeNotification to handle user interface theme change.
      */
     id kRiotDesignValuesDidChangeThemeNotificationObserver;
+    
 }
-
+//@property(strong, nonatomic) FIRAuthStateDidChangeListenerHandle handle;
 @end
 
 @implementation AuthenticationViewController
@@ -199,8 +200,22 @@
         [tracker set:kGAIScreenName value:@"Authentication"];
         [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
     }
+//    // [START auth_listener]
+//    self.handle = [[FIRAuth auth]
+//                   addAuthStateDidChangeListener:^(FIRAuth *_Nonnull auth, FIRUser *_Nullable user) {
+//                       // [START_EXCLUDE]
+//                     //  [self setTitleDisplay:user];
+//                     //  [self.tableView reloadData];
+//                       // [END_EXCLUDE]
+//                   }];
+//    // [END auth_listener]
 }
-
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    // [START remove_auth_listener]
+ //   [[FIRAuth auth] removeAuthStateDidChangeListener:_handle];
+    // [END remove_auth_listener]
+}
 - (void)destroy
 {
     [super destroy];

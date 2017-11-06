@@ -38,6 +38,8 @@ pod 'Realm', '~> 2.10.2'
 pod 'OLMKit', :inhibit_warnings => true
 pod 'cmark', :inhibit_warnings => true
 pod 'DTCoreText', :inhibit_warnings => true
+pod 'Firebase/Auth'
+pod 'Firebase/Core'
 
     
 end

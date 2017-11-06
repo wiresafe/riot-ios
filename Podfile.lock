@@ -37,10 +37,40 @@ PODS:
     - DTFoundation/Core
   - DTFoundation/UIKit (1.7.12):
     - DTFoundation/Core
+  - Firebase/Auth (4.3.0):
+    - Firebase/Core
+    - FirebaseAuth (= 4.2.1)
+  - Firebase/Core (4.3.0):
+    - FirebaseAnalytics (= 4.0.4)
+    - FirebaseCore (= 4.0.8)
+  - FirebaseAnalytics (4.0.4):
+    - FirebaseCore (~> 4.0)
+    - FirebaseInstanceID (~> 2.0)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - nanopb (~> 0.3)
+  - FirebaseAuth (4.2.1):
+    - FirebaseAnalytics (~> 4.0)
+    - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - FirebaseCore (4.0.8):
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - nanopb (~> 0.3)
+  - FirebaseInstanceID (2.0.4)
   - GBDeviceInfo (4.4.0):
     - GBDeviceInfo/Core (= 4.4.0)
   - GBDeviceInfo/Core (4.4.0)
   - GoogleAnalytics (3.17.0)
+  - GoogleToolboxForMac/DebugUtils (2.1.3):
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+  - GoogleToolboxForMac/Defines (2.1.3)
+  - GoogleToolboxForMac/NSData+zlib (2.1.3):
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+  - GoogleToolboxForMac/NSDictionary+URLArguments (2.1.3):
+    - GoogleToolboxForMac/DebugUtils (= 2.1.3)
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+    - GoogleToolboxForMac/NSString+URLArguments (= 2.1.3)
+  - GoogleToolboxForMac/NSString+URLArguments (2.1.3)
+  - GTMSessionFetcher/Core (1.1.12)
   - GZIP (1.1.1)
   - HPGrowingTextView (1.1)
   - libPhoneNumber-iOS (0.9.10)
@@ -67,6 +97,11 @@ PODS:
   - MatrixSDK (0.9.3):
     - AFNetworking (~> 3.1.0)
     - GZIP (~> 1.1.1)
+  - nanopb (0.3.8):
+    - nanopb/decode (= 0.3.8)
+    - nanopb/encode (= 0.3.8)
+  - nanopb/decode (0.3.8)
+  - nanopb/encode (0.3.8)
   - OLMKit (2.2.2):
     - OLMKit/olmc (= 2.2.2)
     - OLMKit/olmcpp (= 2.2.2)
@@ -80,6 +115,8 @@ PODS:
 DEPENDENCIES:
   - cmark
   - DTCoreText
+  - Firebase/Auth
+  - Firebase/Core
   - GBDeviceInfo (~> 4.4.0)
   - GoogleAnalytics
   - MatrixKit (= 0.6.3)
@@ -93,17 +130,25 @@ SPEC CHECKSUMS:
   cmark: ec0275215b504780287b6fca360224e384368af8
   DTCoreText: e5d688cffc9f6a61eddd1a4f94e2046851230de3
   DTFoundation: 26a164ef510877387906fb92bff524a792db4bf8
+  Firebase: 83283761a1ef6dc9846e03d08059f51421afbd65
+  FirebaseAnalytics: 722b53c7b32bfc7806b06e0093a2f5180d4f2c5a
+  FirebaseAuth: d7f047fbeab98062b98ea933b8d934e0fb1190e2
+  FirebaseCore: 69b1a5ac5f857ba6d5fd9d5fe794f4786dd5e579
+  FirebaseInstanceID: 70c2b877e9338971b2429ea5a4293df6961aa44e
   GBDeviceInfo: 2ec90c6808d063061b16773ec8e857257058dc5d
   GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
+  GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
+  GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
   GZIP: f8beb59597f651e6970a45b816508a9c6d700b77
   HPGrowingTextView: 88a716d97fb853bcb08a4a08e4727da17efc9b19
   libPhoneNumber-iOS: f721ae4d5854bce60934f9fb9b0b28e8e68913cb
   MatrixKit: 98a10c8127edb32e0e402d4b9535aea3397e2caa
   MatrixSDK: 834a8a059de81a967404b04086a4abe28456f49a
+  nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   OLMKit: b9d8c0ffee9ea8c45bc0aaa9afb47f93fba7efbd
   Realm: 0ef72b837fb67e9f4b098bac771ddd72c7fdbb69
   WebRTC: 1e9a85bf75509eec44be6478c64e9de65ac82332
 
-PODFILE CHECKSUM: 1373c297b6400fc5916603d8c97e7d0b4d35b173
+PODFILE CHECKSUM: 7640e7ad3196ec61263f73bfb0ce343af74081c3
 
 COCOAPODS: 1.2.1

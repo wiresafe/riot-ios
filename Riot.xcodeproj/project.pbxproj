@@ -321,7 +321,6 @@
 		F083BDEF1E7009ED00A9B29C /* UINavigationController+Riot.m in Sources */ = {isa = PBXBuildFile; fileRef = F083BBEA1E7009EC00A9B29C /* UINavigationController+Riot.m */; };
 		F083BDF01E7009ED00A9B29C /* UIViewController+RiotSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = F083BBEC1E7009EC00A9B29C /* UIViewController+RiotSearch.m */; };
 		F083BDF11E7009ED00A9B29C /* empty.mm in Sources */ = {isa = PBXBuildFile; fileRef = F083BBED1E7009EC00A9B29C /* empty.mm */; };
-		F083BDF21E7009ED00A9B29C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F083BBEE1E7009EC00A9B29C /* GoogleService-Info.plist */; };
 		F083BDF31E7009ED00A9B29C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F083BBEF1E7009EC00A9B29C /* Images.xcassets */; };
 		F083BDF51E7009ED00A9B29C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F083BBF11E7009EC00A9B29C /* main.m */; };
 		F083BDF61E7009ED00A9B29C /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = F083BBF51E7009EC00A9B29C /* Contact.m */; };
@@ -690,6 +689,7 @@
 		92324BE41F4F6A60009DE194 /* CircleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleButton.h; sourceTree = "<group>"; };
 		92324BE51F4F6A60009DE194 /* CircleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleButton.m; sourceTree = "<group>"; };
 		C195C53961EA28E6900AEB68 /* Pods-Riot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Riot.release.xcconfig"; path = "Pods/Target Support Files/Pods-Riot/Pods-Riot.release.xcconfig"; sourceTree = "<group>"; };
+		EB1B66CA1FAAFFF800C704EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EBDF7CFE1FA3281700A7549E /* WireTransferViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WireTransferViewController.h; sourceTree = "<group>"; };
 		EBDF7CFF1FA3281700A7549E /* WireTransferViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WireTransferViewController.m; sourceTree = "<group>"; };
 		EBDF7D0E1FA36AE100A7549E /* PopOverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopOverController.h; sourceTree = "<group>"; };
@@ -940,7 +940,6 @@
 		F083BBEB1E7009EC00A9B29C /* UIViewController+RiotSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RiotSearch.h"; sourceTree = "<group>"; };
 		F083BBEC1E7009EC00A9B29C /* UIViewController+RiotSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RiotSearch.m"; sourceTree = "<group>"; };
 		F083BBED1E7009EC00A9B29C /* empty.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = empty.mm; sourceTree = "<group>"; };
-		F083BBEE1E7009EC00A9B29C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F083BBEF1E7009EC00A9B29C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F083BBF01E7009EC00A9B29C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F083BBF11E7009EC00A9B29C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -2384,7 +2383,6 @@
 			children = (
 				F0DD05CF1F615ECF00CB5292 /* LaunchScreenRiot.png */,
 				F083BBED1E7009EC00A9B29C /* empty.mm */,
-				F083BBEE1E7009EC00A9B29C /* GoogleService-Info.plist */,
 				F083BBF01E7009EC00A9B29C /* Info.plist */,
 				F083BBF11E7009EC00A9B29C /* main.m */,
 				F083BC0E1E7009EC00A9B29C /* third_party_licenses.html */,
@@ -2396,6 +2394,7 @@
 		F094A9991B78D8F000B1FBBF = {
 			isa = PBXGroup;
 			children = (
+				EB1B66CA1FAAFFF800C704EB /* GoogleService-Info.plist */,
 				F083BB081E7009EC00A9B29C /* Riot */,
 				F083BB021E7005FD00A9B29C /* RiotTests */,
 				24CBEC4F1F0EAD310093EABB /* RiotShareExtension */,
@@ -2508,6 +2507,9 @@
 							com.apple.Push = {
 								enabled = 0;
 							};
+							com.apple.SafariKeychain = {
+								enabled = 0;
+							};
 						};
 					};
 					F094A9A11B78D8F000B1FBBF = {
@@ -2517,6 +2519,9 @@
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
+							};
+							com.apple.GameCenter = {
+								enabled = 0;
 							};
 							com.apple.Push = {
 								enabled = 1;
@@ -2698,7 +2703,6 @@
 				F083BE7D1E7009ED00A9B29C /* DirectoryRecentTableViewCell.xib in Resources */,
 				F083BDAD1E7009ED00A9B29C /* plus_icon.png in Resources */,
 				F083BDC01E7009ED00A9B29C /* scrolldown@2x.png in Resources */,
-				F083BDF21E7009ED00A9B29C /* GoogleService-Info.plist in Resources */,
 				F083BD3C1E7009ED00A9B29C /* call_hangup_icon.png in Resources */,
 				F083BE6D1E7009ED00A9B29C /* RoomOutgoingAttachmentWithoutSenderInfoBubbleCell.xib in Resources */,
 				F083BE9F1E7009ED00A9B29C /* TableViewCellWithCheckBoxes.xib in Resources */,
@@ -3501,7 +3505,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.newventureescrow.VentureTrac.wiresafe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6a6f6188-1b03-4364-93c7-058ce2a66a11";
+				PROVISIONING_PROFILE = "0cea8736-a2cf-482c-b69c-a0f3bb9a7eb8";
 				PROVISIONING_PROFILE_SPECIFIER = wiresafeEXtension;
 				SKIP_INSTALL = YES;
 			};
@@ -3528,7 +3532,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.newventureescrow.VentureTrac.wiresafe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6a6f6188-1b03-4364-93c7-058ce2a66a11";
+				PROVISIONING_PROFILE = "0cea8736-a2cf-482c-b69c-a0f3bb9a7eb8";
 				PROVISIONING_PROFILE_SPECIFIER = wiresafeEXtension;
 				SKIP_INSTALL = YES;
 			};
@@ -3576,7 +3580,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "278cdfa4-4f81-4574-86c4-646b7aeb8b58";
+				PROVISIONING_PROFILE = "3dc10377-b2d9-4798-a011-e31ecc92b515";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3616,7 +3620,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "278cdfa4-4f81-4574-86c4-646b7aeb8b58";
+				PROVISIONING_PROFILE = "3dc10377-b2d9-4798-a011-e31ecc92b515";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -3644,7 +3648,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.newventureescrow.VentureTrac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "16d3cbcf-aa99-4776-b8a1-0b56ec7ff02e";
+				PROVISIONING_PROFILE = "3dc10377-b2d9-4798-a011-e31ecc92b515";
 				PROVISIONING_PROFILE_SPECIFIER = NewVentureTracAdhocProvisioning;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3671,7 +3675,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.newventureescrow.VentureTrac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "16d3cbcf-aa99-4776-b8a1-0b56ec7ff02e";
+				PROVISIONING_PROFILE = "3dc10377-b2d9-4798-a011-e31ecc92b515";
 				PROVISIONING_PROFILE_SPECIFIER = NewVentureTracAdhocProvisioning;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
