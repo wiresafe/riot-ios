@@ -35,6 +35,7 @@
     UIPopoverController *uiPopOver;
     RecentCellData * cellDatas;
     UITextField *activeFeild;
+    __weak IBOutlet UIButton *submitButton;
     
 }
 
@@ -49,6 +50,8 @@
     [sendToRoomTextField addTarget:self action:@selector(didclickondropdown) forControlEvents:UIControlEventAllEvents];
     self.recentsTableView.tag = RecentsDataSourceModeWireTransfer;
     [self addPlusButton];
+    submitButton.layer.cornerRadius = 10; // this value vary as per your desire
+    submitButton.clipsToBounds = YES;
     
    
 }

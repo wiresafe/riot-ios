@@ -16,7 +16,7 @@
  */
 
 #import <MatrixKit/MatrixKit.h>
-
+@import Firebase;
 
 @interface AuthenticationViewController : MXKAuthenticationViewController <MXKAuthenticationViewControllerDelegate>
 

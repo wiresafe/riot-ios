@@ -88,6 +88,8 @@
 		92324BE31F4F66D3009DE194 /* IncomingCallView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92324BE21F4F66D3009DE194 /* IncomingCallView.m */; };
 		92324BE61F4F6A60009DE194 /* CircleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 92324BE51F4F6A60009DE194 /* CircleButton.m */; };
 		A27ECCE3FC4971745D2CB78D /* libPods-RiotShareExtension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7246451C668D6782166E22EC /* libPods-RiotShareExtension.a */; };
+		EB82B26E1FB19CCF002EA076 /* GoogleService-Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = EB82B26B1FB1918F002EA076 /* GoogleService-Info.plist */; };
+		EB82B26F1FB19CCF002EA076 /* GoogleService-Info.plist in Sources */ = {isa = PBXBuildFile; fileRef = EB82B26C1FB1919C002EA076 /* GoogleService-Info.plist */; };
 		EBDF7D001FA3281700A7549E /* WireTransferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBDF7CFF1FA3281700A7549E /* WireTransferViewController.m */; };
 		EBDF7D111FA36AE300A7549E /* PopOverController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBDF7D0F1FA36AE200A7549E /* PopOverController.xib */; };
 		EBDF7D121FA36AE300A7549E /* PopOverController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBDF7D101FA36AE200A7549E /* PopOverController.m */; };
@@ -690,6 +692,8 @@
 		92324BE51F4F6A60009DE194 /* CircleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleButton.m; sourceTree = "<group>"; };
 		C195C53961EA28E6900AEB68 /* Pods-Riot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Riot.release.xcconfig"; path = "Pods/Target Support Files/Pods-Riot/Pods-Riot.release.xcconfig"; sourceTree = "<group>"; };
 		EB1B66CA1FAAFFF800C704EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EB82B26B1FB1918F002EA076 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Riot Share Extension/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EB82B26C1FB1919C002EA076 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Riot/Utils/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EBDF7CFE1FA3281700A7549E /* WireTransferViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WireTransferViewController.h; sourceTree = "<group>"; };
 		EBDF7CFF1FA3281700A7549E /* WireTransferViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WireTransferViewController.m; sourceTree = "<group>"; };
 		EBDF7D0E1FA36AE100A7549E /* PopOverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopOverController.h; sourceTree = "<group>"; };
@@ -2395,6 +2399,8 @@
 			isa = PBXGroup;
 			children = (
 				EB1B66CA1FAAFFF800C704EB /* GoogleService-Info.plist */,
+				EB82B26B1FB1918F002EA076 /* GoogleService-Info.plist */,
+				EB82B26C1FB1919C002EA076 /* GoogleService-Info.plist */,
 				F083BB081E7009EC00A9B29C /* Riot */,
 				F083BB021E7005FD00A9B29C /* RiotTests */,
 				24CBEC4F1F0EAD310093EABB /* RiotShareExtension */,
@@ -3139,6 +3145,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB82B26E1FB19CCF002EA076 /* GoogleService-Info.plist in Sources */,
+				EB82B26F1FB19CCF002EA076 /* GoogleService-Info.plist in Sources */,
 				F083BE221E7009ED00A9B29C /* RoomSettingsViewController.m in Sources */,
 				EBDF7D121FA36AE300A7549E /* PopOverController.m in Sources */,
 				F083BE171E7009ED00A9B29C /* MediaPickerViewController.m in Sources */,
@@ -3503,10 +3511,10 @@
 				INFOPLIST_FILE = RiotShareExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.newventureescrow.VentureTrac.wiresafe;
+				PRODUCT_BUNDLE_IDENTIFIER = com.riot.wiresafe.extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0cea8736-a2cf-482c-b69c-a0f3bb9a7eb8";
-				PROVISIONING_PROFILE_SPECIFIER = wiresafeEXtension;
+				PROVISIONING_PROFILE = "ebc3924f-a614-4add-92af-718b2abcc44a";
+				PROVISIONING_PROFILE_SPECIFIER = wiresafeAdhocExtension;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -3530,10 +3538,10 @@
 				INFOPLIST_FILE = RiotShareExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.newventureescrow.VentureTrac.wiresafe;
+				PRODUCT_BUNDLE_IDENTIFIER = com.riot.wiresafe.extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0cea8736-a2cf-482c-b69c-a0f3bb9a7eb8";
-				PROVISIONING_PROFILE_SPECIFIER = wiresafeEXtension;
+				PROVISIONING_PROFILE = "ebc3924f-a614-4add-92af-718b2abcc44a";
+				PROVISIONING_PROFILE_SPECIFIER = wiresafeAdhocExtension;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -3580,7 +3588,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "3dc10377-b2d9-4798-a011-e31ecc92b515";
+				PROVISIONING_PROFILE = "8bb7307e-e7d6-46b7-bac0-abe1c38f6ccb";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3620,7 +3628,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "3dc10377-b2d9-4798-a011-e31ecc92b515";
+				PROVISIONING_PROFILE = "8bb7307e-e7d6-46b7-bac0-abe1c38f6ccb";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -3646,10 +3654,10 @@
 				INFOPLIST_FILE = Riot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.newventureescrow.VentureTrac;
+				PRODUCT_BUNDLE_IDENTIFIER = com.riot.wiresafe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3dc10377-b2d9-4798-a011-e31ecc92b515";
-				PROVISIONING_PROFILE_SPECIFIER = NewVentureTracAdhocProvisioning;
+				PROVISIONING_PROFILE = "8bb7307e-e7d6-46b7-bac0-abe1c38f6ccb";
+				PROVISIONING_PROFILE_SPECIFIER = wiresafeAdhoc;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -3673,10 +3681,10 @@
 				INFOPLIST_FILE = Riot/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.newventureescrow.VentureTrac;
+				PRODUCT_BUNDLE_IDENTIFIER = com.riot.wiresafe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3dc10377-b2d9-4798-a011-e31ecc92b515";
-				PROVISIONING_PROFILE_SPECIFIER = NewVentureTracAdhocProvisioning;
+				PROVISIONING_PROFILE = "8bb7307e-e7d6-46b7-bac0-abe1c38f6ccb";
+				PROVISIONING_PROFILE_SPECIFIER = wiresafeAdhoc;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -85,5 +85,6 @@
 - (IBAction)textFieldDidChange:(id)sender;
 
 - (void)resetThirdPartyIdentifiers;
+-(NSString *)getMailId;
 
 @end

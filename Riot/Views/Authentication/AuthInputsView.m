@@ -39,6 +39,7 @@
     UINavigationController *phoneNumberPickerNavigationController;
     CountryPickerViewController *phoneNumberCountryPicker;
     NBPhoneNumber *nbPhoneNumber;
+    NSString * email;
     
     /**
      The set of parameters ready to use for a registration.
@@ -581,6 +582,7 @@
                         _isThirdPartyIdentifierPending = (nbPhoneNumber && !self.isMSISDNFlowCompleted);
                         
                         // Launch email validation
+                        email = self.emailTextField.text;
                         submittedEmail = [[MXK3PID alloc] initWithMedium:kMX3PIDMediumEmail andAddress:self.emailTextField.text];
 
                         // Create the next link that is common to all Vector.im clients
@@ -917,7 +919,6 @@
 {
     return self.passWordTextField.text;
 }
-
 - (void)setCurrentLastContainer:(UIView*)currentLastContainer
 {
     _currentLastContainer = currentLastContainer;
@@ -1184,7 +1185,9 @@
 
     nbPhoneNumber = nil;
 }
-
+-(NSString *)getMailId{
+    return self.emailTextField.text;
+}
 #pragma mark - MXKCountryPickerViewControllerDelegate
 
 - (void)countryPickerViewController:(MXKCountryPickerViewController *)countryPickerViewController didSelectCountry:(NSString *)isoCountryCode

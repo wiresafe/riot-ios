@@ -254,11 +254,11 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IPg-eu-C10">
-                                        <rect key="frame" x="128" y="404" width="58" height="33"/>
+                                        <rect key="frame" x="128" y="404" width="100" height="33"/>
                                         <color key="backgroundColor" red="0.47450980392156861" green="0.81568627450980391" blue="0.62745098039215685" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="33" id="6Nn-Zi-9Ao"/>
-                                            <constraint firstAttribute="width" constant="58" id="NBt-7R-U8h"/>
+                                            <constraint firstAttribute="width" constant="100" id="NBt-7R-U8h"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Submit">
@@ -322,6 +322,7 @@
                         <outlet property="bankRoutingNoTextField" destination="YtX-ec-g6W" id="dta-9x-1xs"/>
                         <outlet property="scrollView" destination="Sdk-Qx-Eut" id="WxN-oh-znI"/>
                         <outlet property="sendToRoomTextField" destination="FhA-CJ-wFN" id="Xhr-JI-mw8"/>
+                        <outlet property="submitButton" destination="IPg-eu-C10" id="Qnh-OE-miN"/>
                         <segue destination="WDS-Ip-RQ9" kind="presentation" identifier="presentStartChat" id="8em-2V-B3a"/>
                     </connections>
                 </viewController>
@@ -575,14 +576,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="6LG-qc-7jf">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logonew" translatesAutoresizingMaskIntoConstraints="NO" id="4Js-mZ-Ck6" userLabel="Welcome Image View">
                                 <rect key="frame" x="127" y="283" width="120" height="101"/>
+                                <accessibility key="accessibilityConfiguration" identifier="AuthenticationVCWelcomeImageView"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="Ceh-qz-71Q"/>
+                                    <constraint firstAttribute="height" constant="101" id="wdY-JH-C4D"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6LG-qc-7jf" firstAttribute="centerY" secondItem="FdE-yP-vzj" secondAttribute="centerY" id="AF1-hZ-uOX"/>
-                            <constraint firstItem="6LG-qc-7jf" firstAttribute="centerX" secondItem="FdE-yP-vzj" secondAttribute="centerX" id="WGk-oE-AqR"/>
+                            <constraint firstItem="4Js-mZ-Ck6" firstAttribute="centerY" secondItem="FdE-yP-vzj" secondAttribute="centerY" id="9gF-K6-n1Y"/>
+                            <constraint firstItem="4Js-mZ-Ck6" firstAttribute="centerX" secondItem="FdE-yP-vzj" secondAttribute="centerX" id="sTs-gZ-C4e"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="c9s-dM-eEg"/>
@@ -714,7 +720,7 @@
     <resources>
         <image name="apps-icon.png" width="24" height="24"/>
         <image name="bank" width="18" height="18"/>
-        <image name="logo.png" width="120" height="101"/>
+        <image name="logonew" width="320" height="480"/>
         <image name="search_icon.png" width="22" height="22"/>
         <image name="settings_icon.png" width="24" height="24"/>
         <image name="tab_favourites.png" width="25" height="25"/>
@@ -728,7 +734,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="8em-2V-B3a"/>
-        <segue reference="p4M-yR-DLA"/>
+        <segue reference="0ws-cL-0tk"/>
         <segue reference="ziz-Xl-QVg"/>
         <segue reference="mFs-HA-7Oo"/>
         <segue reference="fNQ-S3-DbZ"/>

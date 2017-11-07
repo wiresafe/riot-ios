@@ -59,6 +59,9 @@
 
 #define MAKE_STRING(x) #x
 #define MAKE_NS_STRING(x) @MAKE_STRING(x)
+// [START auth_import]
+@import Firebase;
+// [END auth_import]
 
 NSString *const kAppDelegateDidTapStatusBarNotification = @"kAppDelegateDidTapStatusBarNotification";
 NSString *const kAppDelegateNetworkStatusDidChangeNotification = @"kAppDelegateNetworkStatusDidChangeNotification";
@@ -276,7 +279,7 @@ NSString *const kAppDelegateNetworkStatusDidChangeNotification = @"kAppDelegateN
 {
     // [START firebase_configure]
     // Use Firebase library to configure APIs
-  //  [FIRApp configure];
+    [FIRApp configure];
     // [END firebase_configure]
 #ifdef DEBUG
     // log the full launchOptions only in DEBUG

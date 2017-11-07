@@ -41,7 +41,7 @@
     id kRiotDesignValuesDidChangeThemeNotificationObserver;
     
 }
-//@property(strong, nonatomic) FIRAuthStateDidChangeListenerHandle handle;
+@property(strong, nonatomic) FIRAuthStateDidChangeListenerHandle handle;
 @end
 
 @implementation AuthenticationViewController
@@ -192,7 +192,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+    self.skipButton.hidden = YES;
+    self.forgotPasswordButton.hidden = YES;
     // Screen tracking (via Google Analytics)
     id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
     if (tracker)
@@ -200,21 +201,21 @@
         [tracker set:kGAIScreenName value:@"Authentication"];
         [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
     }
-//    // [START auth_listener]
-//    self.handle = [[FIRAuth auth]
-//                   addAuthStateDidChangeListener:^(FIRAuth *_Nonnull auth, FIRUser *_Nullable user) {
-//                       // [START_EXCLUDE]
-//                     //  [self setTitleDisplay:user];
-//                     //  [self.tableView reloadData];
-//                       // [END_EXCLUDE]
-//                   }];
-//    // [END auth_listener]
+    // [START auth_listener]
+    self.handle = [[FIRAuth auth]
+                   addAuthStateDidChangeListener:^(FIRAuth *_Nonnull auth, FIRUser *_Nullable user) {
+                       // [START_EXCLUDE]
+                     //  [self setTitleDisplay:user];
+                     //  [self.tableView reloadData];
+                       // [END_EXCLUDE]
+                   }];
+    // [END auth_listener]
 }
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    // [START remove_auth_listener]
- //   [[FIRAuth auth] removeAuthStateDidChangeListener:_handle];
-    // [END remove_auth_listener]
+ //    [START remove_auth_listener]
+    [[FIRAuth auth] removeAuthStateDidChangeListener:_handle];
+   //  [END remove_auth_listener]
 }
 - (void)destroy
 {
@@ -451,9 +452,45 @@
                     return;
                 }
             }
+            AuthInputsView *authInputsview = (AuthInputsView*)self.authInputsView;
+            
+            NSString * mailId =  [authInputsview getMailId];
+            [[FIRAuth auth] createUserWithEmail:mailId
+                                       password:self.authInputsView.password
+                                     completion:^(FIRUser *_Nullable user, NSError *_Nullable error) {
+                                         if(error != nil){
+                                             [self onFailureDuringAuthRequest:error];
+                                         }else{
+                                             [super onButtonPressed:sender];
+                                         }
+                                         
+                                     }];
+        }
+        else if(self.authType == MXKAuthenticationTypeLogin){
+            AuthInputsView *authInputsview = (AuthInputsView*)self.authInputsView;
+            
+            NSString * mailId =  [authInputsview getMailId];
+            NSString *errorMsg = [self.authInputsView validateParameters];
+            if (errorMsg)
+            {
+                [self onFailureDuringAuthRequest:[NSError errorWithDomain:MXKAuthErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey:errorMsg}]];
+            }
+            else
+            {   [[FIRAuth auth] signInWithEmail:self.authInputsView.userId
+                                       password:self.authInputsView.password
+                                     completion:^(FIRUser *user, NSError *error) {
+                                         if(error != nil){
+                                             [self onFailureDuringAuthRequest:error];
+                                         }
+                                         else{
+                                             [super onButtonPressed:sender];
+                                         }
+                                         
+                                     }];
+            }
         }
         
-        [super onButtonPressed:sender];
+        
     }
     else if (sender == self.skipButton)
     {
@@ -575,7 +612,7 @@
 - (void)updateForgotPwdButtonVisibility
 {
     self.forgotPasswordButton.hidden = (self.authType != MXKAuthenticationTypeLogin);
-    
+    self.forgotPasswordButton.hidden = YES;
     // Adjust minimum leading constraint of the submit button
     if (self.forgotPasswordButton.isHidden)
     {
@@ -593,7 +630,7 @@
 - (void)updateRegistrationScreenWithThirdPartyIdentifiersHidden:(BOOL)thirdPartyIdentifiersHidden
 {
     self.skipButton.hidden = thirdPartyIdentifiersHidden;
-    
+    self.skipButton.hidden = YES;
     self.serverOptionsContainer.hidden = !thirdPartyIdentifiersHidden;
     [self refreshContentViewHeightConstraint];
     
