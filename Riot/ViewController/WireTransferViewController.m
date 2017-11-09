@@ -52,14 +52,33 @@
     [self addPlusButton];
     submitButton.layer.cornerRadius = 10; // this value vary as per your desire
     submitButton.clipsToBounds = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     
+    [self.view addGestureRecognizer:tap];
    
 }
-
+-(void)viewDidDisappear:(BOOL)animated{
+     bankNameTextField.text = @"";
+    accntNumTextField.text= @"";
+    bankRoutingNoTextField.text= @"";
+    accntOwnrNameTextField.text= @"";
+    bankAddressTextField.text= @"";
+    sendToRoomTextField.text= @"";
+}
+-(void)dismissKeyboard{
+    [self.view endEditing:YES];
+    
+}
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
+//    if([textField isEqual:sendToRoomTextField])
+//    {
+//        [textField resignFirstResponder];
+//    }
+//    else{
     activeFeild = textField;
     [scrollView setContentOffset:CGPointMake(0,textField.center.y-60) animated:YES];
+   // }
 }
 
 
@@ -92,8 +111,16 @@
     PopOverController *controller = [[PopOverController alloc]initWithNibName:@"PopOverController" bundle:nil WithArray:conversationArray];
     controller.delegate = self;
    
+ //   [self presentViewController:controller animated:YES completion:nil];
+    
+ //   MYViewController * myViewController = [[MYViewController alloc] init];
+    controller.modalPresentationStyle = UIModalPresentationPopover;
+    controller.popoverPresentationController.sourceView = sendToRoomTextField;
+    controller.popoverPresentationController.sourceRect = CGRectMake(100, 20, 0, 0);
     [self presentViewController:controller animated:YES completion:nil];
 }
+
+
 -(void)viewWillAppear:(BOOL)animated{
     [AppDelegate theDelegate].masterTabBarController.navigationItem.title = @"Wire transfer";
     [AppDelegate theDelegate].masterTabBarController.navigationController.navigationBar.tintColor = kRiotColorIndigo;
@@ -142,6 +169,10 @@
 }
 
 -(void)cellClicked:(RecentCellData *)cellData {
+    [activeFeild resignFirstResponder];
+    [self dismissKeyboard];
+    [scrollView setContentOffset:CGPointMake(0,0) animated:YES];
+  
     cellDatas = cellData;
     sendToRoomTextField.text = cellDatas.roomDisplayname;
 }

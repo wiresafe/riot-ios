@@ -11,7 +11,7 @@
 @protocol popOverDelegate <NSObject>
 - (void)cellClicked:(RecentCellData*)cellData;
 @end
-@interface PopOverController : UIViewController
+@interface PopOverController : UIViewController <UIPopoverPresentationControllerDelegate>
 @property(weak,nonatomic) IBOutlet id <popOverDelegate> delegate;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil WithArray:(NSArray *)listDict;
 

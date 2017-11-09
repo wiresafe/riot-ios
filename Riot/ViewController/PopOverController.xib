@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Vz2-Gj-7Na">
-                    <rect key="frame" x="30" y="70" width="315" height="527"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="separatorColor" red="0.66146689967105265" green="0.66666666666666663" blue="0.65738075657894723" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -32,11 +32,12 @@
             </subviews>
             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Vz2-Gj-7Na" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="AIr-Ws-wZY"/>
-                <constraint firstAttribute="bottom" secondItem="Vz2-Gj-7Na" secondAttribute="bottom" constant="70" id="B57-r5-6io"/>
-                <constraint firstAttribute="trailing" secondItem="Vz2-Gj-7Na" secondAttribute="trailing" constant="30" id="OJr-dB-HFm"/>
-                <constraint firstItem="Vz2-Gj-7Na" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="j7j-Gp-gPA"/>
+                <constraint firstItem="Vz2-Gj-7Na" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="AIr-Ws-wZY"/>
+                <constraint firstAttribute="bottom" secondItem="Vz2-Gj-7Na" secondAttribute="bottom" id="B57-r5-6io"/>
+                <constraint firstAttribute="trailing" secondItem="Vz2-Gj-7Na" secondAttribute="trailing" id="OJr-dB-HFm"/>
+                <constraint firstItem="Vz2-Gj-7Na" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="j7j-Gp-gPA"/>
             </constraints>
+            <point key="canvasLocation" x="26.5" y="52.5"/>
         </view>
     </objects>
 </document>

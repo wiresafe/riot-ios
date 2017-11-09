@@ -24,10 +24,15 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+- (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller {
+    return UIModalPresentationNone; //You have to specify this particular value in order to make it work on iPhone.
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil WithArray:(NSArray *)listArray
 {
     if ((self = [super initWithNibName:nibNameOrNil bundle:nil])) {
        contentArray = listArray;
+        self.modalPresentationStyle = UIModalPresentationPopover;
+        self.popoverPresentationController.delegate = self;
     }
     return self;
 }

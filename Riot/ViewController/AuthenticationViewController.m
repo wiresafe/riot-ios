@@ -363,7 +363,7 @@
 }
 
 - (IBAction)onButtonPressed:(id)sender
-{
+{   [self dismissKeyboard];
     if (sender == self.customServersTickButton)
     {
         [self hideCustomServers:!self.customServersContainer.hidden];
@@ -455,21 +455,27 @@
             AuthInputsView *authInputsview = (AuthInputsView*)self.authInputsView;
             
             NSString * mailId =  [authInputsview getMailId];
-            [[FIRAuth auth] createUserWithEmail:mailId
-                                       password:self.authInputsView.password
-                                     completion:^(FIRUser *_Nullable user, NSError *_Nullable error) {
-                                         if(error != nil){
-                                             [self onFailureDuringAuthRequest:error];
-                                         }else{
-                                             [super onButtonPressed:sender];
-                                         }
-                                         
-                                     }];
+            NSString *errorMsg = [self.authInputsView validateParameters];
+            if(errorMsg != nil){
+               [self onFailureDuringAuthRequest:[NSError errorWithDomain:MXKAuthErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey:errorMsg}]];
+            }
+            else{
+                [[FIRAuth auth] createUserWithEmail:mailId
+                                           password:self.authInputsView.password
+                                         completion:^(FIRUser *_Nullable user, NSError *_Nullable error) {
+                                             if(error != nil){
+                                                 [self onFailureDuringAuthRequest:error];
+                                             }else{
+                                                 [super onButtonPressed:sender];
+                                             }
+                                             
+                                         }];
+            }
+           
         }
         else if(self.authType == MXKAuthenticationTypeLogin){
-            AuthInputsView *authInputsview = (AuthInputsView*)self.authInputsView;
+           
             
-            NSString * mailId =  [authInputsview getMailId];
             NSString *errorMsg = [self.authInputsView validateParameters];
             if (errorMsg)
             {

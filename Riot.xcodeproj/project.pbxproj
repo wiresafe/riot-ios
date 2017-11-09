@@ -3513,7 +3513,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.riot.wiresafe.extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ebc3924f-a614-4add-92af-718b2abcc44a";
+				PROVISIONING_PROFILE = "39a5129b-2ded-4299-a652-298bcf0ff9d5";
 				PROVISIONING_PROFILE_SPECIFIER = wiresafeAdhocExtension;
 				SKIP_INSTALL = YES;
 			};
@@ -3540,7 +3540,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.riot.wiresafe.extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ebc3924f-a614-4add-92af-718b2abcc44a";
+				PROVISIONING_PROFILE = "39a5129b-2ded-4299-a652-298bcf0ff9d5";
 				PROVISIONING_PROFILE_SPECIFIER = wiresafeAdhocExtension;
 				SKIP_INSTALL = YES;
 			};
@@ -3588,7 +3588,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "8bb7307e-e7d6-46b7-bac0-abe1c38f6ccb";
+				PROVISIONING_PROFILE = "ec1e044b-a6f8-4002-a7eb-6d9e7626a128";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3628,7 +3628,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "8bb7307e-e7d6-46b7-bac0-abe1c38f6ccb";
+				PROVISIONING_PROFILE = "ec1e044b-a6f8-4002-a7eb-6d9e7626a128";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -3656,7 +3656,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.riot.wiresafe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8bb7307e-e7d6-46b7-bac0-abe1c38f6ccb";
+				PROVISIONING_PROFILE = "ec1e044b-a6f8-4002-a7eb-6d9e7626a128";
 				PROVISIONING_PROFILE_SPECIFIER = wiresafeAdhoc;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3683,7 +3683,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.riot.wiresafe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8bb7307e-e7d6-46b7-bac0-abe1c38f6ccb";
+				PROVISIONING_PROFILE = "ec1e044b-a6f8-4002-a7eb-6d9e7626a128";
 				PROVISIONING_PROFILE_SPECIFIER = wiresafeAdhoc;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

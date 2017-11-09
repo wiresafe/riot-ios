@@ -3662,52 +3662,99 @@ typedef void (^blockSettingsViewController_onReadyToDestroy)();
                 MXKAccount* account = [MXKAccountManager sharedManager].activeAccounts.firstObject;
                 
                 [account changePassword:currentPasswordTextField.text with:newPasswordTextField1.text success:^{
-                    
-                    if (weakSelf)
-                    {
-                        typeof(self) self = weakSelf;
+                    [[FIRAuth auth].currentUser updatePassword:newPasswordTextField1.text  completion:^(NSError *_Nullable error) {
                         
-                        self->isResetPwdInProgress = NO;
-                        [self stopActivityIndicator];
-                        
-                        // Display a successful message only if the settings screen is still visible (destroy is not called yet)
-                        if (!self->onReadyToDestroyHandler)
-                        {
-                            [self->currentAlert dismissViewControllerAnimated:NO completion:nil];
-                            
-                            self->currentAlert = [UIAlertController alertControllerWithTitle:nil message:NSLocalizedStringFromTable(@"settings_password_updated", @"Vector", nil) preferredStyle:UIAlertControllerStyleAlert];
-                            
-                            [self->currentAlert addAction:[UIAlertAction actionWithTitle:[NSBundle mxk_localizedStringForKey:@"ok"]
-                                                                             style:UIAlertActionStyleDefault
-                                                                           handler:^(UIAlertAction * action) {
-                                                                               
-                                                                               if (weakSelf)
-                                                                               {
-                                                                                   typeof(self) self = weakSelf;
-                                                                                   self->currentAlert = nil;
-                                                                                   
-                                                                                   // Check whether destroy has been called durign pwd change
-                                                                                   if (self->onReadyToDestroyHandler)
-                                                                                   {
-                                                                                       // Ready to destroy
-                                                                                       self->onReadyToDestroyHandler();
-                                                                                       self->onReadyToDestroyHandler = nil;
-                                                                                   }
-                                                                               }
-                                                                               
-                                                                           }]];
-                            
-                            [self->currentAlert mxk_setAccessibilityIdentifier:@"SettingsVCOnPasswordUpdatedAlert"];
-                            [self presentViewController:self->currentAlert animated:YES completion:nil];
+                        if(error != nil){
+                            if (weakSelf)
+                            {
+                                typeof(self) self = weakSelf;
+                                
+                                self->isResetPwdInProgress = NO;
+                                [self stopActivityIndicator];
+                                
+                                // Display a failure message on the current screen
+                                UIViewController *rootViewController = [AppDelegate theDelegate].window.rootViewController;
+                                if (rootViewController)
+                                {
+                                    [self->currentAlert dismissViewControllerAnimated:NO completion:nil];
+                                    
+                                    self->currentAlert = [UIAlertController alertControllerWithTitle:nil message:NSLocalizedStringFromTable(@"settings_fail_to_update_password", @"Vector", nil) preferredStyle:UIAlertControllerStyleAlert];
+                                    
+                                    [self->currentAlert addAction:[UIAlertAction actionWithTitle:[NSBundle mxk_localizedStringForKey:@"ok"]
+                                                                                           style:UIAlertActionStyleDefault
+                                                                                         handler:^(UIAlertAction * action) {
+                                                                                             
+                                                                                             if (weakSelf)
+                                                                                             {
+                                                                                                 typeof(self) self = weakSelf;
+                                                                                                 
+                                                                                                 self->currentAlert = nil;
+                                                                                                 
+                                                                                                 // Check whether destroy has been called durign pwd change
+                                                                                                 if (self->onReadyToDestroyHandler)
+                                                                                                 {
+                                                                                                     // Ready to destroy
+                                                                                                     self->onReadyToDestroyHandler();
+                                                                                                     self->onReadyToDestroyHandler = nil;
+                                                                                                 }
+                                                                                             }
+                                                                                             
+                                                                                         }]];
+                                    
+                                    [self->currentAlert mxk_setAccessibilityIdentifier:@"SettingsVCPasswordChangeFailedAlert"];
+                                    [rootViewController presentViewController:self->currentAlert animated:YES completion:nil];
+                                }
+                            }
                         }
-                        else
-                        {
-                            // Ready to destroy
-                            self->onReadyToDestroyHandler();
-                            self->onReadyToDestroyHandler = nil;
+                        else{
+                            
+                            
+                            if (weakSelf)
+                            {
+                                typeof(self) self = weakSelf;
+                                
+                                self->isResetPwdInProgress = NO;
+                                [self stopActivityIndicator];
+                                
+                                // Display a successful message only if the settings screen is still visible (destroy is not called yet)
+                                if (!self->onReadyToDestroyHandler)
+                                {
+                                    [self->currentAlert dismissViewControllerAnimated:NO completion:nil];
+                                    
+                                    self->currentAlert = [UIAlertController alertControllerWithTitle:nil message:NSLocalizedStringFromTable(@"settings_password_updated", @"Vector", nil) preferredStyle:UIAlertControllerStyleAlert];
+                                    
+                                    [self->currentAlert addAction:[UIAlertAction actionWithTitle:[NSBundle mxk_localizedStringForKey:@"ok"]
+                                                                                           style:UIAlertActionStyleDefault
+                                                                                         handler:^(UIAlertAction * action) {
+                                                                                             
+                                                                                             if (weakSelf)
+                                                                                             {
+                                                                                                 typeof(self) self = weakSelf;
+                                                                                                 self->currentAlert = nil;
+                                                                                                 
+                                                                                                 // Check whether destroy has been called durign pwd change
+                                                                                                 if (self->onReadyToDestroyHandler)
+                                                                                                 {
+                                                                                                     // Ready to destroy
+                                                                                                     self->onReadyToDestroyHandler();
+                                                                                                     self->onReadyToDestroyHandler = nil;
+                                                                                                 }
+                                                                                             }
+                                                                                             
+                                                                                         }]];
+                                    
+                                    [self->currentAlert mxk_setAccessibilityIdentifier:@"SettingsVCOnPasswordUpdatedAlert"];
+                                    [self presentViewController:self->currentAlert animated:YES completion:nil];
+                                }
+                                else
+                                {
+                                    // Ready to destroy
+                                    self->onReadyToDestroyHandler();
+                                    self->onReadyToDestroyHandler = nil;
+                                }
+                            }
                         }
-                    }
-                    
+                    }];
                 } failure:^(NSError *error) {
                     
                     if (weakSelf)
