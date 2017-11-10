@@ -1188,6 +1188,9 @@
 -(NSString *)getMailId{
     return self.emailTextField.text;
 }
+-(NBPhoneNumber *)getPhnnumber{
+    return nbPhoneNumber;
+}
 #pragma mark - MXKCountryPickerViewControllerDelegate
 
 - (void)countryPickerViewController:(MXKCountryPickerViewController *)countryPickerViewController didSelectCountry:(NSString *)isoCountryCode

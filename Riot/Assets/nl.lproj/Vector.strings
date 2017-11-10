@@ -151,7 +151,7 @@
 "contacts_address_book_matrix_users_toggle" = "Alleen Matrix gebruikers";
 "contacts_address_book_no_contact" = "Geen lokale contacten";
 "contacts_address_book_permission_required" = "Permissie vereist voor toegang tot de lokale contacten";
-"contacts_address_book_permission_denied" = "Je hebt Riot geen toegang tot je lokale contacten toegestaan";
+"contacts_address_book_permission_denied" = "Je hebt Wiresafe geen toegang tot je lokale contacten toegestaan";
 // Chat participants
 "room_participants_title" = "Deelnemers";
 "room_participants_add_participant" = "Deelnemer toevoegen";
@@ -419,7 +419,7 @@
 // Crash report
 "google_analytics_use_prompt" = "Wil je helpen met het verbeteren van %@ bij het automatisch rapporteren van crash rapporten en data van gebruik?";
 // Crypto
-"e2e_enabling_on_app_update" = "Riot ondersteunt nu eind-tot-eind sleuteling maar je moet opnieuw inloggen om het aan te zetten.\n\nJe kan het nu of later doen vanaf de applicatie instellingen.";
+"e2e_enabling_on_app_update" = "Wiresafe ondersteunt nu eind-tot-eind sleuteling maar je moet opnieuw inloggen om het aan te zetten.\n\nJe kan het nu of later doen vanaf de applicatie instellingen.";
 "e2e_need_log_in_again" = "Je moet opnieuw inloggen om eind-tot-eind versleuteling sleutels te genereren voor dit apparaat en om de publieke sleutel naar de thuisserver te sturen.\nDit is eenmalig; excuses voor het ongemak.";
 // Bug report
 "bug_report_title" = "Foutmelding";
@@ -446,8 +446,8 @@
 // Events formatter
 "event_formatter_member_updates" = "%tu lidmaatschap aanpassingen";
 "bug_report_send" = "Stuur";
-"auth_home_server_placeholder" = "URL (bv. https://matrix.org)";
-"auth_identity_server_placeholder" = "URL (bv. https://matrix.org)";
+"auth_home_server_placeholder" = "URL (bv. https://neo.wiresafe.com)";
+"auth_identity_server_placeholder" = "URL (bv. https://neo.wiresafe.com)";
 "room_ongoing_conference_call_with_close" = "Lopend vergadergesprek. Neem deel als %@ of %@. %@ het.";
 "room_ongoing_conference_call_close" = "Sluiten";
 "room_conference_call_no_power" = "Je hebt permissie nodig om het vergadergesprek in deze ruimte te beheren";

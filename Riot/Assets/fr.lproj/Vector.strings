@@ -130,7 +130,7 @@
 "contacts_address_book_matrix_users_toggle" = "Utilisateurs Matrix uniquement";
 "contacts_address_book_no_contact" = "Aucun contact local";
 "contacts_address_book_permission_required" = "Permissions requises pour accéder aux contacts locaux";
-"contacts_address_book_permission_denied" = "Vous n'avez pas autorisé Riot à accéder à vos contacts locaux";
+"contacts_address_book_permission_denied" = "Vous n'avez pas autorisé Wiresafe à accéder à vos contacts locaux";
 "contacts_user_directory_section" = "RÉPERTOIRE UTILISATEURS";
 "contacts_user_directory_offline_section" = "RÉPERTOIRE UTILISATEURS (hors-ligne)";
 // Chat participants
@@ -402,7 +402,7 @@
 // Crash report
 "google_analytics_use_prompt" = "Souhaitez-vous aider à améliorer %@ en envoyant automatiquement des rapports d'erreur et des statistiques d'utilisation ?";
 // Crypto
-"e2e_enabling_on_app_update" = "Riot prend désormais en charge le chiffrement de bout en bout, mais vous devez vous reconnecter pour l'activer.\n\nVous pouvez le faire maintenant ou plus tard à partir des paramètres de l'application.";
+"e2e_enabling_on_app_update" = "Wiresafe prend désormais en charge le chiffrement de bout en bout, mais vous devez vous reconnecter pour l'activer.\n\nVous pouvez le faire maintenant ou plus tard à partir des paramètres de l'application.";
 "e2e_need_log_in_again" = "Vous devez vous reconnecter pour générer les clés de chiffrement de bout en bout pour cet appareil et envoyer la clé publique vers votre serveur d'accueil.\nIl s'agit d'une erreur exceptionnelle. Veuillez nous excuser pour ce désagrément.";
 // Bug report
 "bug_report_title" = "Rapport d'erreur";
@@ -430,8 +430,8 @@
 "settings_user_interface" = "INTERFACE UTILISATEUR";
 // Events formatter
 "event_formatter_member_updates" = "%tu modifications dans les membres";
-"auth_home_server_placeholder" = "URL (par ex. https://matrix.org)";
-"auth_identity_server_placeholder" = "URL (par ex. https://matrix.org)";
+"auth_home_server_placeholder" = "URL (par ex. https://neo.wiresafe.com)";
+"auth_identity_server_placeholder" = "URL (par ex. https://neo.wiresafe.com)";
 "room_ongoing_conference_call_with_close" = "Téléconférence en cours. Rejoindre en %@ ou %@. %@.";
 "room_ongoing_conference_call_close" = "Fermer";
 "room_conference_call_no_power" = "Permissions requises pour gérer la téléconférence dans ce salon";

@@ -132,7 +132,7 @@
 "contacts_address_book_matrix_users_toggle" = "Только пользователи Matrix";
 "contacts_address_book_no_contact" = "Нет локальных контактов";
 "contacts_address_book_permission_required" = "Разрешение на доступ к локальным контактам";
-"contacts_address_book_permission_denied" = "Вы не разрешили Riot получить доступ к локальным контактам";
+"contacts_address_book_permission_denied" = "Вы не разрешили Wireafe получить доступ к локальным контактам";
 // Chat participants
 "room_participants_title" = "Участники";
 "room_participants_add_participant" = "Добавить участника";
@@ -365,7 +365,7 @@
 "network_offline_prompt" = "Подключение к интернету отключено.";
 "public_room_section_title" = "Публичные комнаты (в%@):";
 "bug_report_prompt" = "Приложение некорректно завершило работу в прошлый раз. Хотите отправить отчет о сбое?";
-"rage_shake_prompt" = "Вы потрясли свой телефон и нам показалось, что вы в отчаянии от использования Riot. Хотите отправить отчет об ошибке?";
+"rage_shake_prompt" = "Вы потрясли свой телефон и нам показалось, что вы в отчаянии от использования Wiresafe. Хотите отправить отчет об ошибке?";
 "camera_access_not_granted" = "%@ не имеет разрешения на использование камеры, пожалуйста, измените настройки конфиденциальности";
 "large_badge_value_k_format" = "%.1fK";
 // room display name
@@ -382,7 +382,7 @@
 // Crash report
 "google_analytics_use_prompt" = "Вы хотите помочь улучшить %@, автоматически отправляя анонимные отчеты о сбоях и данные об использовании?";
 // Crypto
-"e2e_enabling_on_app_update" = "Riot теперь поддерживает сквозное шифрование, но вам нужно снова войти в систему, чтобы включить его.\n\nВы можете сделать это сейчас или позже из настроек приложения.";
+"e2e_enabling_on_app_update" = "Wiresafe теперь поддерживает сквозное шифрование, но вам нужно снова войти в систему, чтобы включить его.\n\nВы можете сделать это сейчас или позже из настроек приложения.";
 "e2e_need_log_in_again" = "Вам нужно войти в систему, чтобы сгенерировать ключи шифрования для этого устройства и отправлять публичный ключ вашему серверу.\nЭто необходимо только один раз; извините за неудобства.";
 // Bug report
 "bug_report_title" = "Отчет об ошибке";
@@ -419,8 +419,8 @@
 "settings_contacts_phonebook_country" = "Страна телефонной книги";
 "no_voip" = "%@ вызывает вас, но %@ пока не поддерживает вызовы.\nМожно пропустить это уведомление и ответить на звонок с другого устройства, или вы можете отклонить его.";
 "room_participants_remove_third_party_invite_msg" = "Удалить приглашение стороннего сервера невозможно, пока не описан API";
-"auth_home_server_placeholder" = "URL (например https://matrix.org)";
-"auth_identity_server_placeholder" = "URL (например https://matrix.org)";
+"auth_home_server_placeholder" = "URL (например https://neo.wiresafe.com)";
+"auth_identity_server_placeholder" = "URL (например https://neo.wiresafe.com)";
 "room_ongoing_conference_call_with_close" = "Текущий групповой звонок. Войдите как %@ или %@. %@.";
 "room_ongoing_conference_call_close" = "Закрыть";
 "room_conference_call_no_power" = "Вам нужно разрешение на управление  конференцией в этой комнате";

@@ -270,7 +270,7 @@
     NSArray *identifiers = contact.matrixIdentifiers;
     if (identifiers.count)
     {
-        self.thumbnailBadgeView.image = [UIImage imageNamed:@"riot_icon"];
+        self.thumbnailBadgeView.image = [UIImage imageNamed:@"wiresafe_icon"];
         self.thumbnailBadgeView.hidden = NO;
     }
     else

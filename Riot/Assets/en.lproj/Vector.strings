@@ -69,8 +69,8 @@
 "auth_phone_placeholder" = "Phone number";
 "auth_repeat_password_placeholder" = "Repeat password";
 "auth_repeat_new_password_placeholder" = "Confirm your new password";
-"auth_home_server_placeholder" = "URL (e.g. https://matrix.org)";
-"auth_identity_server_placeholder" = "URL (e.g. https://matrix.org)";
+"auth_home_server_placeholder" = "URL (e.g. https://neo.wiresafe.com)";
+"auth_identity_server_placeholder" = "URL (e.g. https://neo.wiresafe.com)";
 "auth_invalid_login_param" = "Incorrect username and/or password";
 "auth_invalid_user_name" = "User names may only contain letters, numbers, dots, hyphens and underscores";
 "auth_invalid_password" = "Password too short (min 6)";
@@ -170,7 +170,7 @@
 "contacts_address_book_matrix_users_toggle" = "Matrix users only";
 "contacts_address_book_no_contact" = "No local contacts";
 "contacts_address_book_permission_required" = "Permission required to access local contacts";
-"contacts_address_book_permission_denied" = "You didn't allow Riot to access your local contacts";
+"contacts_address_book_permission_denied" = "You didn't allow Wiresafe to access your local contacts";
 "contacts_user_directory_section" = "USER DIRECTORY";
 "contacts_user_directory_offline_section" = "USER DIRECTORY (offline)";
 
@@ -501,7 +501,7 @@
 "google_analytics_use_prompt" = "Would you like to help improve %@ by automatically reporting anonymous crash reports and usage data?";
 
 // Crypto
-"e2e_enabling_on_app_update" = "Riot now supports end-to-end encryption but you need to log in again to enable it.\n\nYou can do it now or later from the application settings.";
+"e2e_enabling_on_app_update" = "Wiresafe now supports end-to-end encryption but you need to log in again to enable it.\n\nYou can do it now or later from the application settings.";
 "e2e_need_log_in_again" = "You need to log back in to generate end-to-end encryption keys for this device and submit the public key to your homeserver.\nThis is a once off; sorry for the inconvenience.";
 
 // Bug report

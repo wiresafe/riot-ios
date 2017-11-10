@@ -82,9 +82,11 @@
  */
 @property (nonatomic) NSString *isoCountryCode;
 
+
 - (IBAction)textFieldDidChange:(id)sender;
 
 - (void)resetThirdPartyIdentifiers;
 -(NSString *)getMailId;
+-(NBPhoneNumber *)getPhnnumber;
 
 @end

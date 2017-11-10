@@ -34,6 +34,8 @@
      The default country code used to initialize the mobile phone number input.
      */
     NSString *defaultCountryCode;
+    BOOL firebseloginFailed;
+    NSString * mailIdOnLogin;
     
     /**
      Observe kRiotDesignValuesDidChangeThemeNotification to handle user interface theme change.
@@ -454,13 +456,13 @@
             }
             AuthInputsView *authInputsview = (AuthInputsView*)self.authInputsView;
             
-            NSString * mailId =  [authInputsview getMailId];
+            mailIdOnLogin =  [authInputsview getMailId];
             NSString *errorMsg = [self.authInputsView validateParameters];
             if(errorMsg != nil){
                [self onFailureDuringAuthRequest:[NSError errorWithDomain:MXKAuthErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey:errorMsg}]];
             }
             else{
-                [[FIRAuth auth] createUserWithEmail:mailId
+                [[FIRAuth auth] createUserWithEmail:mailIdOnLogin
                                            password:self.authInputsView.password
                                          completion:^(FIRUser *_Nullable user, NSError *_Nullable error) {
                                              if(error != nil){
@@ -474,25 +476,36 @@
            
         }
         else if(self.authType == MXKAuthenticationTypeLogin){
-           
-            
-            NSString *errorMsg = [self.authInputsView validateParameters];
-            if (errorMsg)
-            {
-                [self onFailureDuringAuthRequest:[NSError errorWithDomain:MXKAuthErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey:errorMsg}]];
+            AuthInputsView *authInputsview = (AuthInputsView*)self.authInputsView;
+            NBPhoneNumber * phnNo =  [authInputsview getPhnnumber];
+            if(phnNo != nil){
+                [super onButtonPressed:sender];
             }
-            else
-            {   [[FIRAuth auth] signInWithEmail:self.authInputsView.userId
-                                       password:self.authInputsView.password
-                                     completion:^(FIRUser *user, NSError *error) {
-                                         if(error != nil){
-                                             [self onFailureDuringAuthRequest:error];
-                                         }
-                                         else{
-                                             [super onButtonPressed:sender];
-                                         }
-                                         
-                                     }];
+            else{
+                firebseloginFailed = NO;
+                NSString *errorMsg = [self.authInputsView validateParameters];
+                if (errorMsg)
+                {
+                    [self onFailureDuringAuthRequest:[NSError errorWithDomain:MXKAuthErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey:errorMsg}]];
+                }
+                else
+                {   AuthInputsView *authInputsview = (AuthInputsView*)self.authInputsView;
+                    
+                    mailIdOnLogin = self.authInputsView.userId;
+                    [[FIRAuth auth] signInWithEmail:self.authInputsView.userId
+                                           password:self.authInputsView.password
+                                         completion:^(FIRUser *user, NSError *error) {
+                                             if(error != nil){
+                                                 firebseloginFailed = YES;
+                                                 [super onButtonPressed:sender];
+                                                 //[self onFailureDuringAuthRequest:error];
+                                             }
+                                             else{
+                                                 [super onButtonPressed:sender];
+                                             }
+                                             
+                                         }];
+                }
             }
         }
         
@@ -521,7 +534,7 @@
     // Homeserver migration: When the default homeserver url is different from matrix.org,
     // the login (or forgot pwd) process with an existing matrix.org accounts will then fail.
     // Patch: Falling back to matrix.org HS so we don't break everyone's logins
-    if ([self.homeServerTextField.text isEqualToString:self.defaultHomeServerUrl] && ![self.defaultHomeServerUrl isEqualToString:@"https://matrix.org"])
+    if ([self.homeServerTextField.text isEqualToString:self.defaultHomeServerUrl] && ![self.defaultHomeServerUrl isEqualToString:@"https://neo.wiresafe.com"])
     {
         MXError *mxError = [[MXError alloc] initWithNSError:error];
         
@@ -534,7 +547,7 @@
                 
                 // Store the current error, and change the homeserver url
                 loginError = error;
-                [self setHomeServerTextFieldText:@"https://matrix.org"];
+                [self setHomeServerTextFieldText:@"https://neo.wiresafe.com"];
                 
                 // Trigger a new request
                 [self onButtonPressed:self.submitButton];
@@ -553,7 +566,7 @@
                     
                     // Store the current error, and change the homeserver url
                     loginError = error;
-                    [self setHomeServerTextFieldText:@"https://matrix.org"];
+                    [self setHomeServerTextFieldText:@"https://neo.wiresafe.com"];
                     
                     // Trigger a new request
                     ForgotPasswordInputsView *authInputsView = (ForgotPasswordInputsView*)self.authInputsView;
@@ -586,6 +599,23 @@
 - (void)onSuccessfulLogin:(MXCredentials*)credentials
 {
     // Check whether a third party identifiers has not been used
+    if(firebseloginFailed){
+    AuthInputsView *authInputsview = (AuthInputsView*)self.authInputsView;
+        NSString * mailId =  mailIdOnLogin;
+    NSString *errorMsg = [self.authInputsView validateParameters];
+    if(errorMsg == nil){
+        [[FIRAuth auth] createUserWithEmail:mailId
+                                   password:self.authInputsView.password
+                                 completion:^(FIRUser *_Nullable user, NSError *_Nullable error) {
+                                     if(error != nil){
+                                         NSLog(@"firebase Login failed");
+                                     }else{
+                                         NSLog(@"firebase Login succefull");
+                                     }
+                                     
+                                 }];
+    }
+    }
     if ([self.authInputsView isKindOfClass:AuthInputsView.class])
     {
         AuthInputsView *authInputsview = (AuthInputsView*)self.authInputsView;

@@ -7,7 +7,7 @@
 	<key>pinRoomsWithUnread</key>
 	<true/>
 	<key>pushGatewayURL</key>
-	<string>https://matrix.org/_matrix/push/v1/notify</string>
+	<string>https://neo.wiresafe.com/_matrix/push/v1/notify</string>
 	<key>pusherAppIdDev</key>
 	<string>im.vector.app.ios.dev</string>
 	<key>pusherAppIdProd</key>
