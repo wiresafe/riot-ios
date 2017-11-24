@@ -40,7 +40,7 @@ pod 'cmark', :inhibit_warnings => true
 pod 'DTCoreText', :inhibit_warnings => true
 pod 'Firebase/Auth'
 pod 'Firebase/Core'
-
+pod 'GoogleSignIn'
     
 end
 

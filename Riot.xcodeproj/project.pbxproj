@@ -694,6 +694,7 @@
 		EB1B66CA1FAAFFF800C704EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EB82B26B1FB1918F002EA076 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Riot Share Extension/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EB82B26C1FB1919C002EA076 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Riot/Utils/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EBA1F1DE1FC3EECA003EE6C7 /* Riot copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Riot copy-Info.plist"; path = "/Users/shahina/Documents/riot-ios/Riot copy-Info.plist"; sourceTree = "<absolute>"; };
 		EBDF7CFE1FA3281700A7549E /* WireTransferViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WireTransferViewController.h; sourceTree = "<group>"; };
 		EBDF7CFF1FA3281700A7549E /* WireTransferViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WireTransferViewController.m; sourceTree = "<group>"; };
 		EBDF7D0E1FA36AE100A7549E /* PopOverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopOverController.h; sourceTree = "<group>"; };
@@ -2407,6 +2408,7 @@
 				F094A9A31B78D8F000B1FBBF /* Products */,
 				7471DF3720D498384A068DA7 /* Pods */,
 				5FC42FA41F5186AFFB6A2404 /* Frameworks */,
+				EBA1F1DE1FC3EECA003EE6C7 /* Riot copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -3503,7 +3505,7 @@
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CODE_SIGN_ENTITLEMENTS = RiotShareExtension/RiotShareExtension.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Casey LeBlanc (3786CYUYT4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Casey LeBlanc (6336RBSP84)";
 				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 3786CYUYT4;
@@ -3513,8 +3515,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.riot.wiresafe.extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "39a5129b-2ded-4299-a652-298bcf0ff9d5";
-				PROVISIONING_PROFILE_SPECIFIER = wiresafeAdhocExtension;
+				PROVISIONING_PROFILE = "81eb6c3c-c620-4a4e-8a68-822a82186545";
+				PROVISIONING_PROFILE_SPECIFIER = WiresafeDevExtension;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -3529,7 +3531,7 @@
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CODE_SIGN_ENTITLEMENTS = RiotShareExtension/RiotShareExtension.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Casey LeBlanc (3786CYUYT4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Casey LeBlanc (6336RBSP84)";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -3540,8 +3542,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.riot.wiresafe.extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "39a5129b-2ded-4299-a652-298bcf0ff9d5";
-				PROVISIONING_PROFILE_SPECIFIER = wiresafeAdhocExtension;
+				PROVISIONING_PROFILE = "81eb6c3c-c620-4a4e-8a68-822a82186545";
+				PROVISIONING_PROFILE_SPECIFIER = WiresafeDevExtension;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -3565,8 +3567,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Casey LeBlanc (3786CYUYT4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Casey LeBlanc (3786CYUYT4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Casey LeBlanc (6336RBSP84)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Casey LeBlanc (6336RBSP84)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -3588,7 +3590,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "ec1e044b-a6f8-4002-a7eb-6d9e7626a128";
+				PROVISIONING_PROFILE = "1b9d457d-4813-420a-b915-2f00c23753f2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3613,8 +3615,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Casey LeBlanc (3786CYUYT4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Casey LeBlanc (3786CYUYT4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Casey LeBlanc (6336RBSP84)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Casey LeBlanc (6336RBSP84)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -3628,7 +3630,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "ec1e044b-a6f8-4002-a7eb-6d9e7626a128";
+				PROVISIONING_PROFILE = "1b9d457d-4813-420a-b915-2f00c23753f2";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -3641,8 +3643,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Riot/Riot.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Casey LeBlanc (3786CYUYT4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Casey LeBlanc (3786CYUYT4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Casey LeBlanc (6336RBSP84)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Casey LeBlanc (6336RBSP84)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 3786CYUYT4;
 				ENABLE_BITCODE = NO;
@@ -3656,8 +3658,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.riot.wiresafe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ec1e044b-a6f8-4002-a7eb-6d9e7626a128";
-				PROVISIONING_PROFILE_SPECIFIER = wiresafeAdhoc;
+				PROVISIONING_PROFILE = "1b9d457d-4813-420a-b915-2f00c23753f2";
+				PROVISIONING_PROFILE_SPECIFIER = WiresafeDev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -3668,8 +3670,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Riot/Riot.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Casey LeBlanc (3786CYUYT4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Casey LeBlanc (3786CYUYT4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Casey LeBlanc (6336RBSP84)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Casey LeBlanc (6336RBSP84)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 3786CYUYT4;
 				ENABLE_BITCODE = NO;
@@ -3683,8 +3685,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.riot.wiresafe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ec1e044b-a6f8-4002-a7eb-6d9e7626a128";
-				PROVISIONING_PROFILE_SPECIFIER = wiresafeAdhoc;
+				PROVISIONING_PROFILE = "1b9d457d-4813-420a-b915-2f00c23753f2";
+				PROVISIONING_PROFILE_SPECIFIER = WiresafeDev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -3693,7 +3695,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 3786CYUYT4;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3717,7 +3719,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 3786CYUYT4;
 				FRAMEWORK_SEARCH_PATHS = (

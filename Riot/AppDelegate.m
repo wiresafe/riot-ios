@@ -61,6 +61,8 @@
 #define MAKE_NS_STRING(x) @MAKE_STRING(x)
 // [START auth_import]
 @import Firebase;
+@import GoogleSignIn;
+
 // [END auth_import]
 
 NSString *const kAppDelegateDidTapStatusBarNotification = @"kAppDelegateDidTapStatusBarNotification";
@@ -281,6 +283,8 @@ NSString *const kAppDelegateNetworkStatusDidChangeNotification = @"kAppDelegateN
     // Use Firebase library to configure APIs
     [FIRApp configure];
     // [END firebase_configure]
+    [GIDSignIn sharedInstance].clientID = [FIRApp defaultApp].options.clientID;
+    [GIDSignIn sharedInstance].delegate = self;
 #ifdef DEBUG
     // log the full launchOptions only in DEBUG
     NSLog(@"[AppDelegate] didFinishLaunchingWithOptions: %@", launchOptions);
@@ -359,7 +363,53 @@ NSString *const kAppDelegateNetworkStatusDidChangeNotification = @"kAppDelegateN
     
     return YES;
 }
-
+- (void)signIn:(GIDSignIn *)signIn
+didSignInForUser:(GIDGoogleUser *)user
+     withError:(NSError *)error {
+    // [START_EXCLUDE]
+    AuthenticationViewController *controller = (AuthenticationViewController*) [GIDSignIn sharedInstance].uiDelegate;
+    // [END_EXCLUDE]
+    if (error == nil) {
+        // [START google_credential]
+        GIDAuthentication *authentication = user.authentication;
+        FIRAuthCredential *credential =
+        [FIRGoogleAuthProvider credentialWithIDToken:authentication.idToken
+                                         accessToken:authentication.accessToken];
+        // [END google_credential]
+        // [START_EXCLUDE]
+        [controller firebaseLoginWithCredential:credential];
+        // [END_EXCLUDE]
+    } else {
+        // [START_EXCLUDE]
+        [controller onFailureDuringAuthRequest:error];
+      //  [controller showMessagePrompt:error.localizedDescription];
+        // [END_EXCLUDE]
+    }
+}
+- (void)signIn:(GIDSignIn *)signIn
+didDisconnectWithUser:(GIDGoogleUser *)user
+     withError:(NSError *)error {
+    // Perform any operations when the user disconnects from app here.
+    // ...
+}
+- (BOOL)application:(nonnull UIApplication *)application
+            openURL:(nonnull NSURL *)url
+            options:(nonnull NSDictionary<NSString *, id> *)options {
+    // [END new_delegate]
+    return [self application:application
+                     openURL:url
+            // [START new_options]
+           sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                  annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];
+}
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    return [[GIDSignIn sharedInstance] handleURL:url
+                               sourceApplication:sourceApplication
+                                      annotation:annotation];
+}
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     NSLog(@"[AppDelegate] applicationWillResignActive");
@@ -537,7 +587,7 @@ NSString *const kAppDelegateNetworkStatusDidChangeNotification = @"kAppDelegateN
 {
     NSLog(@"[AppDelegate] applicationWillTerminate");
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    
+    [GIDSignIn.sharedInstance signOut];
     [self stopGoogleAnalytics];
 }
 

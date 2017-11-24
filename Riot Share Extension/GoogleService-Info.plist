@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>1056765837562-s480t0afjj4ebpaghgrl7uao0aima1nu.apps.googleusercontent.com</string>
+	<string>1039382416339-rfvf3i1urpnceikj14traf3mcje1qpb8.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1056765837562-s480t0afjj4ebpaghgrl7uao0aima1nu</string>
+	<string>com.googleusercontent.apps.1039382416339-rfvf3i1urpnceikj14traf3mcje1qpb8</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAr38lHfYzqioYBHmOKD1PU8JnViCZ_64I</string>
+	<string>AIzaSyAVfTwtAafzVk16XKRqXb3ynWz9aIf4SRg</string>
 	<key>GCM_SENDER_ID</key>
-	<string>1056765837562</string>
+	<string>1039382416339</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.riot.wiresafe.extension</string>
 	<key>PROJECT_ID</key>
-	<string>wiresafe-518d5</string>
+	<string>wiresafe-project</string>
 	<key>STORAGE_BUCKET</key>
-	<string>wiresafe-518d5.appspot.com</string>
+	<string>wiresafe-project.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1056765837562:ios:5a23f50293660fc1</string>
+	<string>1:1039382416339:ios:5a23f50293660fc1</string>
 	<key>DATABASE_URL</key>
-	<string>https://wiresafe-518d5.firebaseio.com</string>
+	<string>https://wiresafe-project.firebaseio.com</string>
 </dict>
 </plist>

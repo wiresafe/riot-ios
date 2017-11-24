@@ -407,7 +407,7 @@
                 {
                     // Check whether the user login has been set.
                     NSString *user = self.userLoginTextField.text;
-                    
+                    NSString * password = self.passWordTextField.text;
                     if (user.length)
                     {
                         // Check whether user login is an email or a username.
@@ -420,7 +420,7 @@
                                                    @"medium": kMX3PIDMediumEmail,
                                                    @"address": user
                                                    },
-                                           @"password": self.passWordTextField.text,
+                                           @"password": password,
                                            // Patch: add the old login api parameters for an email address (medium and address),
                                            // to keep logging in against old HS.
                                            @"medium": kMX3PIDMediumEmail,
@@ -698,18 +698,22 @@
                 else if (self.isDummyFlowSupported)
                 {
                     parameters = @{
-                                   @"auth": @{@"session":currentSession.session, @"type": kMXLoginFlowTypeDummy},
-                                   @"username": self.userLoginTextField.text,
-                                   @"password": self.passWordTextField.text,
-                                   @"bind_msisdn": @(NO),
-                                   @"bind_email": @(NO)
+                                   @"auth": @{@"session":currentSession.session,
+                                               @"type": kMXLoginFlowTypeDummy},
+                                               @"username": self.userLoginTextField.text,
+                                               @"password": self.passWordTextField.text,
+                                               @"bind_msisdn": @(NO),
+                                               @"bind_email": @(NO)
                                    };
                 }
                 else if (self.isPasswordBasedFlowSupported)
                 {
                     // Note: this use case was not tested yet.
                     parameters = @{
-                                   @"auth": @{@"session":currentSession.session, @"username": self.userLoginTextField.text, @"password": self.passWordTextField.text, @"type": kMXLoginFlowTypePassword}
+                                   @"auth": @{@"session":currentSession.session,
+                                              @"username": self.userLoginTextField.text,
+                                              @"password": self.passWordTextField.text,
+                                              @"type": kMXLoginFlowTypePassword}
                                    };
                 }
             }

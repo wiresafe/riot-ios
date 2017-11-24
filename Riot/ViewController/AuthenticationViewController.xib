@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -25,6 +25,7 @@
                 <outlet property="customServersContainer" destination="uOi-KN-l9I" id="3Im-yv-sKB"/>
                 <outlet property="customServersTickButton" destination="6yx-o1-vbD" id="sPS-ud-q3F"/>
                 <outlet property="forgotPasswordButton" destination="AJ2-lJ-NUq" id="DZw-3o-ioE"/>
+                <outlet property="googleSignInButton" destination="x6V-sD-MWi" id="ttD-n0-IoI"/>
                 <outlet property="homeServerContainer" destination="1YY-gb-LG4" id="ASO-JT-0iV"/>
                 <outlet property="homeServerLabel" destination="kHf-s1-cZa" id="nSI-4K-aQq"/>
                 <outlet property="homeServerSeparator" destination="ZZP-eI-bXP" id="Vip-yy-WPd"/>
@@ -38,7 +39,6 @@
                 <outlet property="noFlowLabel" destination="54b-4O-ip9" id="f18-H1-cQm"/>
                 <outlet property="optionsContainer" destination="Gg0-TE-OGb" id="RWa-Pl-eaL"/>
                 <outlet property="retryButton" destination="wIH-Kd-r7q" id="42j-Ad-zVS"/>
-                <outlet property="rightBarButtonItem" destination="Kwt-KN-aVL" id="Y3F-wA-tf8"/>
                 <outlet property="serverOptionsContainer" destination="FIn-2w-e6H" id="Z0e-NN-3LY"/>
                 <outlet property="skipButton" destination="wEJ-AF-rdH" id="smu-MS-2IY"/>
                 <outlet property="submitButton" destination="k3J-Eg-itz" id="fiZ-wK-6YM"/>
@@ -49,66 +49,67 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="5rn-KE-plm">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k7D-Gy-yBR">
-                    <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="GiL-7R-Wm2"/>
                     </constraints>
                     <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <items>
-                        <navigationItem title="Riot" id="rj9-wP-8QS">
-                            <barButtonItem key="rightBarButtonItem" title="Register" id="Kwt-KN-aVL">
-                                <connections>
-                                    <action selector="onButtonPressed:" destination="-1" id="nwk-aV-eBO"/>
-                                </connections>
-                            </barButtonItem>
-                        </navigationItem>
+                        <navigationItem title="Riot" id="rj9-wP-8QS"/>
                     </items>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="AuthenticationVCNavigationBar"/>
                     </userDefinedRuntimeAttributes>
                 </navigationBar>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="izX-ya-hXh">
-                    <rect key="frame" x="0.0" y="63" width="414" height="1"/>
+                    <rect key="frame" x="0.0" y="63" width="375" height="1"/>
                     <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="ZiW-uP-cgo"/>
                     </constraints>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="OHV-KQ-Ww0">
-                    <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rhx-dD-4EJ" userLabel="Content View">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="485"/>
                             <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x6V-sD-MWi" customClass="GIDSignInButton">
+                                    <rect key="frame" x="8" y="184" width="359" height="68"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="68" id="nmt-to-zD1"/>
+                                    </constraints>
+                                </view>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logonew" translatesAutoresizingMaskIntoConstraints="NO" id="d8r-TX-pwX" userLabel="Welcome Image View">
-                                    <rect key="frame" x="127.66666666666666" y="25" width="119.99999999999997" height="101"/>
+                                    <rect key="frame" x="108" y="25" width="154" height="133"/>
                                     <accessibility key="accessibilityConfiguration" identifier="AuthenticationVCWelcomeImageView"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="120" id="ZFx-Mn-Kzq"/>
-                                        <constraint firstAttribute="height" constant="101" id="zA1-WN-LdU"/>
+                                        <constraint firstAttribute="width" constant="154" id="ZFx-Mn-Kzq"/>
+                                        <constraint firstAttribute="height" constant="133" id="zA1-WN-LdU"/>
                                     </constraints>
                                 </imageView>
                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xWb-IJ-v7F" userLabel="AuthInputsContainerView">
-                                    <rect key="frame" x="0.0" y="160" width="375" height="200"/>
+                                    <rect key="frame" x="0.0" y="224" width="375" height="158"/>
                                     <subviews>
                                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="30E-gm-z6O">
-                                            <rect key="frame" x="177.66666666666666" y="90" width="20" height="20"/>
+                                            <rect key="frame" x="177.5" y="90" width="20" height="20"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="AuthenticationVCActivityIndicator"/>
                                             </userDefinedRuntimeAttributes>
                                         </activityIndicatorView>
                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currently we do not support authentication flows defined by this Home Server" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="54b-4O-ip9" userLabel="noFlowLabel">
-                                            <rect key="frame" x="28.333333333333343" y="8" width="319.33333333333337" height="33.666666666666686"/>
+                                            <rect key="frame" x="28" y="8" width="319.5" height="33.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wIH-Kd-r7q" userLabel="retryButton">
-                                            <rect key="frame" x="165.66666666666666" y="46.666666666666686" width="45" height="30"/>
+                                            <rect key="frame" x="165" y="46.5" width="45" height="30"/>
                                             <accessibility key="accessibilityConfiguration" identifier="AuthenticationVCRetryButton"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="WtO-NT-ei8"/>
@@ -129,16 +130,16 @@
                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="8K0-es-Aee"/>
                                         <constraint firstItem="54b-4O-ip9" firstAttribute="top" secondItem="xWb-IJ-v7F" secondAttribute="top" constant="8" id="Ddp-gU-nLY"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="54b-4O-ip9" secondAttribute="trailing" constant="8" id="VEQ-w9-9Ln"/>
-                                        <constraint firstAttribute="centerY" secondItem="30E-gm-z6O" secondAttribute="centerY" id="ctL-D3-bgP"/>
-                                        <constraint firstAttribute="height" constant="200" id="e04-1Y-4gZ"/>
+                                        <constraint firstAttribute="centerY" secondItem="30E-gm-z6O" secondAttribute="centerY" constant="-21" id="ctL-D3-bgP"/>
+                                        <constraint firstAttribute="height" constant="158" id="e04-1Y-4gZ"/>
                                         <constraint firstItem="wIH-Kd-r7q" firstAttribute="top" secondItem="54b-4O-ip9" secondAttribute="bottom" constant="5" id="grf-0I-rwT"/>
                                         <constraint firstItem="54b-4O-ip9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xWb-IJ-v7F" secondAttribute="leading" constant="8" id="phW-Yy-zN7"/>
                                         <constraint firstAttribute="centerX" secondItem="wIH-Kd-r7q" secondAttribute="centerX" id="rTd-Qc-xrD"/>
                                         <constraint firstAttribute="centerX" secondItem="30E-gm-z6O" secondAttribute="centerX" id="sSN-PO-Q6t"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gg0-TE-OGb">
-                                    <rect key="frame" x="0.0" y="360" width="375" height="300"/>
+                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gg0-TE-OGb">
+                                    <rect key="frame" x="0.0" y="269" width="375" height="266"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AJ2-lJ-NUq">
                                             <rect key="frame" x="19" y="33" width="122" height="30"/>
@@ -195,10 +196,10 @@
                                                 <action selector="onButtonPressed:" destination="-1" eventType="touchUpInside" id="Ocd-Ag-6hf"/>
                                             </connections>
                                         </button>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FIn-2w-e6H">
+                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FIn-2w-e6H">
                                             <rect key="frame" x="0.0" y="68" width="375" height="178"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6yx-o1-vbD">
+                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6yx-o1-vbD">
                                                     <rect key="frame" x="19" y="5" width="337" height="30"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="AuthenticationVCCustomServersTickButton"/>
                                                     <constraints>
@@ -222,10 +223,10 @@
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uOi-KN-l9I">
                                                     <rect key="frame" x="0.0" y="38" width="375" height="140"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1YY-gb-LG4">
+                                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1YY-gb-LG4">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Server:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHf-s1-cZa">
+                                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home Server:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHf-s1-cZa">
                                                                     <rect key="frame" x="18" y="8" width="339" height="20"/>
                                                                     <accessibility key="accessibilityConfiguration" identifier="AuthenticationVCHSLabel"/>
                                                                     <constraints>
@@ -235,7 +236,7 @@
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="URL (e.g. https://neo.wiresafe.com)" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G8l-AP-iRs">
+                                                                <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="URL (e.g. https://neo.wiresafe.com)" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G8l-AP-iRs">
                                                                     <rect key="frame" x="18" y="36" width="339" height="21"/>
                                                                     <accessibility key="accessibilityConfiguration" identifier="AuthenticationVCHSTextField"/>
                                                                     <constraints>
@@ -247,7 +248,7 @@
                                                                         <outlet property="delegate" destination="-1" id="UVr-c4-V8L"/>
                                                                     </connections>
                                                                 </textField>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZZP-eI-bXP">
+                                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZZP-eI-bXP">
                                                                     <rect key="frame" x="10" y="69" width="355" height="1"/>
                                                                     <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <constraints>
@@ -270,10 +271,10 @@
                                                                 <constraint firstAttribute="height" constant="70" id="wa1-77-Lb4"/>
                                                             </constraints>
                                                         </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kjJ-Tb-SIW">
+                                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kjJ-Tb-SIW">
                                                             <rect key="frame" x="0.0" y="70" width="375" height="70"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Identity Server:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5CT-Ht-Z3v">
+                                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Identity Server:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5CT-Ht-Z3v">
                                                                     <rect key="frame" x="18" y="8" width="339" height="20"/>
                                                                     <accessibility key="accessibilityConfiguration" identifier="AuthenticationVCISLabel"/>
                                                                     <constraints>
@@ -283,7 +284,7 @@
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="URL (e.g. https://neo.wiresafe.com)" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PZC-Hd-Q6a">
+                                                                <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="URL (e.g. https://neo.wiresafe.com)" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PZC-Hd-Q6a">
                                                                     <rect key="frame" x="18" y="36" width="339" height="21"/>
                                                                     <accessibility key="accessibilityConfiguration" identifier="AuthenticationVCISTextField"/>
                                                                     <constraints>
@@ -295,7 +296,7 @@
                                                                         <outlet property="delegate" destination="-1" id="nZF-by-6t6"/>
                                                                     </connections>
                                                                 </textField>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t08-ua-0mJ">
+                                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t08-ua-0mJ">
                                                                     <rect key="frame" x="10" y="69" width="355" height="1"/>
                                                                     <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <constraints>
@@ -355,7 +356,7 @@
                                         <constraint firstItem="k3J-Eg-itz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Gg0-TE-OGb" secondAttribute="leading" constant="150" id="bEB-EO-b14"/>
                                         <constraint firstItem="AJ2-lJ-NUq" firstAttribute="centerY" secondItem="k3J-Eg-itz" secondAttribute="centerY" id="dcE-Vs-7Rt"/>
                                         <constraint firstAttribute="trailing" secondItem="FIn-2w-e6H" secondAttribute="trailing" id="kFj-6g-v3H"/>
-                                        <constraint firstAttribute="height" constant="300" id="lXv-gM-CjN"/>
+                                        <constraint firstAttribute="height" constant="266" id="lXv-gM-CjN"/>
                                         <constraint firstItem="k3J-Eg-itz" firstAttribute="top" secondItem="Gg0-TE-OGb" secondAttribute="top" constant="33" id="mor-t9-7Ke"/>
                                         <constraint firstItem="FIn-2w-e6H" firstAttribute="top" secondItem="k3J-Eg-itz" secondAttribute="bottom" constant="5" id="oTS-5o-MMW"/>
                                         <constraint firstItem="wEJ-AF-rdH" firstAttribute="leading" secondItem="Gg0-TE-OGb" secondAttribute="leading" constant="11" id="sax-RY-aOJ"/>
@@ -368,15 +369,18 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="485" id="6v6-fz-e8o"/>
                                 <constraint firstItem="Gg0-TE-OGb" firstAttribute="width" secondItem="rhx-dD-4EJ" secondAttribute="width" id="EBX-KN-pRT"/>
-                                <constraint firstItem="Gg0-TE-OGb" firstAttribute="top" secondItem="rhx-dD-4EJ" secondAttribute="top" priority="250" constant="384" id="UEM-Mh-0H9"/>
+                                <constraint firstItem="x6V-sD-MWi" firstAttribute="leading" secondItem="rhx-dD-4EJ" secondAttribute="leading" constant="8" id="OZw-hL-IMc"/>
+                                <constraint firstItem="Gg0-TE-OGb" firstAttribute="top" secondItem="rhx-dD-4EJ" secondAttribute="top" priority="250" constant="269" id="UEM-Mh-0H9"/>
                                 <constraint firstItem="xWb-IJ-v7F" firstAttribute="leading" secondItem="rhx-dD-4EJ" secondAttribute="leading" id="YnP-Nk-QxR"/>
-                                <constraint firstItem="Gg0-TE-OGb" firstAttribute="top" secondItem="xWb-IJ-v7F" secondAttribute="bottom" id="aGH-m3-xL3"/>
+                                <constraint firstItem="Gg0-TE-OGb" firstAttribute="top" secondItem="xWb-IJ-v7F" secondAttribute="bottom" constant="-113" id="aGH-m3-xL3"/>
                                 <constraint firstAttribute="width" constant="375" placeholder="YES" id="hOT-Wn-hIb"/>
                                 <constraint firstAttribute="trailing" secondItem="xWb-IJ-v7F" secondAttribute="trailing" id="hko-ol-XDd"/>
-                                <constraint firstItem="xWb-IJ-v7F" firstAttribute="top" secondItem="rhx-dD-4EJ" secondAttribute="top" constant="160" id="khR-Uj-OTH"/>
+                                <constraint firstAttribute="trailing" secondItem="x6V-sD-MWi" secondAttribute="trailing" constant="8" id="jtD-ta-DWP"/>
+                                <constraint firstItem="xWb-IJ-v7F" firstAttribute="top" secondItem="rhx-dD-4EJ" secondAttribute="top" constant="224" id="khR-Uj-OTH"/>
                                 <constraint firstItem="d8r-TX-pwX" firstAttribute="top" secondItem="rhx-dD-4EJ" secondAttribute="top" constant="25" id="l68-Ta-YKg"/>
-                                <constraint firstAttribute="centerX" secondItem="d8r-TX-pwX" secondAttribute="centerX" id="l6k-EH-Yb8"/>
+                                <constraint firstAttribute="centerX" secondItem="d8r-TX-pwX" secondAttribute="centerX" constant="2.5" id="l6k-EH-Yb8"/>
                                 <constraint firstItem="Gg0-TE-OGb" firstAttribute="leading" secondItem="rhx-dD-4EJ" secondAttribute="leading" id="rS3-go-zbf"/>
+                                <constraint firstItem="x6V-sD-MWi" firstAttribute="top" secondItem="rhx-dD-4EJ" secondAttribute="top" constant="184" id="yQH-BQ-dfE"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -392,10 +396,10 @@
                     </userDefinedRuntimeAttributes>
                 </scrollView>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q1e-Wg-6t7" userLabel="Authentication Fallback ContentView">
-                    <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9qj-5c-Sfb">
-                            <rect key="frame" x="356" y="5" width="50" height="35"/>
+                            <rect key="frame" x="317" y="5" width="50" height="35"/>
                             <accessibility key="accessibilityConfiguration" identifier="AuthenticationVCCancelAuthFallbackButton"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="50" id="GMq-PF-fBv"/>
@@ -409,7 +413,7 @@
                             </connections>
                         </button>
                         <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vhh-m0-nXN" userLabel="fallback WebView" customClass="MXKAuthenticationFallbackWebView">
-                            <rect key="frame" x="0.0" y="40" width="414" height="676"/>
+                            <rect key="frame" x="0.0" y="40" width="375" height="607"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="AuthenticationVCFallbackWebView"/>
@@ -446,10 +450,11 @@
                 <constraint firstItem="q1e-Wg-6t7" firstAttribute="top" secondItem="5rn-KE-plm" secondAttribute="top" constant="20" id="sT2-HR-vou"/>
                 <constraint firstItem="k7D-Gy-yBR" firstAttribute="leading" secondItem="5rn-KE-plm" secondAttribute="leading" id="z6D-6L-5Ud"/>
             </constraints>
+            <point key="canvasLocation" x="31.5" y="59.5"/>
         </view>
     </objects>
     <resources>
-        <image name="logonew" width="736" height="416"/>
+        <image name="logonew" width="320" height="480"/>
         <image name="selection_untick.png" width="22" height="22"/>
     </resources>
 </document>

@@ -24,6 +24,8 @@
 
 @interface AuthenticationViewController ()
 {
+    __weak IBOutlet GIDSignInButton *googleSignInButton;
+    __weak IBOutlet UILabel *orLabel;
     /**
      Store the potential login error received by using a default homeserver different from matrix.org
      while we retry a login process against the matrix.org HS.
@@ -78,7 +80,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [GIDSignIn sharedInstance].uiDelegate = self;
+   // [[GIDSignIn sharedInstance] signIn];
     self.mainNavigationItem.title = nil;
     self.rightBarButtonItem.title = NSLocalizedStringFromTable(@"auth_register", @"Vector", nil);
     
@@ -121,6 +124,9 @@
     MXAuthenticationSession *authSession = [MXAuthenticationSession modelFromJSON:@{@"flows":@[@{@"stages":@[kMXLoginFlowTypePassword]}]}];
     [authInputsView setAuthSession:authSession withAuthType:MXKAuthenticationTypeLogin];
     self.authInputsView = authInputsView;
+    authInputsView.hidden = YES;
+    orLabel.hidden  = YES;
+    self.submitButton.hidden = YES;
     
     // Observe user interface theme change.
     kRiotDesignValuesDidChangeThemeNotificationObserver = [[NSNotificationCenter defaultCenter] addObserverForName:kRiotDesignValuesDidChangeThemeNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *notif) {
@@ -130,7 +136,31 @@
     }];
     [self userInterfaceThemeDidChange];
 }
-
+- (void)firebaseLoginWithCredential:(FIRAuthCredential *)credential {
+    [self startActivityIndicator];
+    [[FIRAuth auth] signInWithCredential:credential
+                              completion:^(FIRUser *user, NSError *error) {
+                                  if (error) {
+                                      [self stopActivityIndicator];
+                                      return;
+                                  }
+                                  [user getIDTokenForcingRefresh:YES completion:^(NSString * _Nullable token, NSError * _Nullable error) {
+                                      //:^(NSString * _Nullable token, NSError * _Nullable error) {
+                                      if(error){
+                                          return ;
+                                      }
+                                      AuthInputsView *authInputsview = (AuthInputsView*)self.authInputsView;
+                                      authInputsview.passWordTextField.text = token;
+                                     id<FIRUserInfo> userInfo = user.providerData[0];
+                                      
+                                      authInputsview.userLoginTextField.text =user.uid;
+                                      [self setAuthType:MXKAuthenticationTypeLogin];
+                                      [super onButtonPressed:self.submitButton];
+                                      [self stopActivityIndicator];
+                                  }];
+                              }];
+    
+}
 - (void)userInterfaceThemeDidChange
 {
     self.view.backgroundColor = kRiotSecondaryBgColor;
@@ -827,7 +857,7 @@
                               success:nil
                               failure:^(NSError *error) {
                                   
-                                  NSLog(@"[AuthenticationVC] Create chat with riot-bot failed");
+                                  NSLog(@"[AuthenticationVC] Create chat with Wiresafe-bot failed");
                                   
                               }];
     }

@@ -29,7 +29,7 @@
 #import "RageShakeManager.h"
 
 #import "RiotDesignValues.h"
-
+#import "AuthenticationViewController.h"
 #pragma mark - Notifications
 /**
  Posted when the user taps the clock status bar.
@@ -41,7 +41,7 @@ extern NSString *const kAppDelegateDidTapStatusBarNotification;
  */
 extern NSString *const kAppDelegateNetworkStatusDidChangeNotification;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, MXKCallViewControllerDelegate, UISplitViewControllerDelegate, UINavigationControllerDelegate, JitsiViewControllerDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, MXKCallViewControllerDelegate, UISplitViewControllerDelegate, UINavigationControllerDelegate, JitsiViewControllerDelegate , GIDSignInDelegate>
 {
     BOOL isAPNSRegistered;
     

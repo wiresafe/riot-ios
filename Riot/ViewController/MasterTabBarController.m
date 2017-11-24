@@ -585,6 +585,7 @@
                             NSString* BankaccNumber = [messages objectAtIndex:1];
                             NSString *my_string =[NSString stringWithFormat:@"Wire Transfer Details \nBank Name: %@ \n Bank Address: %@ \n Account Owner Name: %@ \n Bank Routing Number:%@ \n Bank Account Number:%@ \n", bankName, bankAddress, AccountOwnerName , BankRoutingNumber, BankaccNumber];
                             [roomDataSource sendTextMessage:my_string success:^(NSString *eventId) {
+                                messages = nil;
                                 NSLog(@"success.....");
                             } failure:^(NSError *error) {
                                 NSLog(@"failed");

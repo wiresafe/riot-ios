@@ -2486,7 +2486,13 @@ typedef void (^blockSettingsViewController_onReadyToDestroy)();
                                                            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                                                                
                                                                [[MXKAccountManager sharedManager] logout];
-                                                               
+                                                               NSError *signOutError;
+                                                               BOOL status = [[FIRAuth auth] signOut:&signOutError];
+                                                               if (!status) {
+                                                                   NSLog(@"Error signing out: %@", signOutError);
+                                                                   return;
+                                                               }
+                                                               [[GIDSignIn sharedInstance] signOut];
                                                            });
                                                        }
                                                        
