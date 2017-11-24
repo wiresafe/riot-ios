@@ -47,16 +47,40 @@
 
 -(void)viewDidLoad{
     self.navigationController.navigationItem.title = @"Wire transfer";
-    [sendToRoomTextField addTarget:self action:@selector(didclickondropdown) forControlEvents:UIControlEventAllEvents];
+ 
+   // [sendToRoomTextField addTarget:self action:@selector(didclickondropdown) forControlEvents:UIControlEventTouchDown];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didRecognizeTapGesture:)];
+    [sendToRoomTextField.superview addGestureRecognizer:tapGesture];
+
+    
     self.recentsTableView.tag = RecentsDataSourceModeWireTransfer;
     [self addPlusButton];
     submitButton.layer.cornerRadius = 10; // this value vary as per your desire
     submitButton.clipsToBounds = YES;
+   
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
    
 }
+
+
+- (void) didRecognizeTapGesture:(UITapGestureRecognizer*) gesture {
+    CGPoint point = [gesture locationInView:gesture.view];
+    
+    if (gesture.state == UIGestureRecognizerStateEnded) {
+        if (CGRectContainsPoint(sendToRoomTextField.frame, point)) {
+            [self didclickondropdown];
+        }
+    }
+}
+//- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+//{
+//    if([textField isEqual:sendToRoomTextField])
+//        return NO;
+//    else
+//        return YES;
+//}
 -(void)viewDidDisappear:(BOOL)animated{
      bankNameTextField.text = @"";
     accntNumTextField.text= @"";
@@ -71,14 +95,15 @@
 }
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-//    if([textField isEqual:sendToRoomTextField])
-//    {
-//        [textField resignFirstResponder];
-//    }
-//    else{
+    if([textField isEqual:sendToRoomTextField])
+    {
+        [textField resignFirstResponder];
+        [self didclickondropdown];
+    }
+    else{
     activeFeild = textField;
     [scrollView setContentOffset:CGPointMake(0,textField.center.y-60) animated:YES];
-   // }
+    }
 }
 
 
@@ -104,20 +129,32 @@
     
     return NO;
 }
+
 -(void)didclickondropdown{
     NSArray * conversationArray = recentsDataSource.conversationCellDataArray;
    // NSArray *dropdownArray =[NSArray arrayWithObjects: @"Linux", @"Matrix",@"Riot", @"Arch Linux",
                           //   nil];
-    PopOverController *controller = [[PopOverController alloc]initWithNibName:@"PopOverController" bundle:nil WithArray:conversationArray];
-    controller.delegate = self;
+    if(conversationArray.count > 0){
+        PopOverController *controller = [[PopOverController alloc]initWithNibName:@"PopOverController" bundle:nil WithArray:conversationArray];
+        controller.delegate = self;
+        
+        //   [self presentViewController:controller animated:YES completion:nil];
+        
+        //   MYViewController * myViewController = [[MYViewController alloc] init];
+        controller.modalPresentationStyle = UIModalPresentationPopover;
+        controller.popoverPresentationController.sourceView = sendToRoomTextField;
+        controller.popoverPresentationController.sourceRect = CGRectMake(100, 20, 0, 0);
+        [self presentViewController:controller animated:YES completion:nil];
+    }
+    else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No room to send"
+                                                        message:@""
+                                                       delegate:self
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"OK", nil];
+        [alert show];
+    }
    
- //   [self presentViewController:controller animated:YES completion:nil];
-    
- //   MYViewController * myViewController = [[MYViewController alloc] init];
-    controller.modalPresentationStyle = UIModalPresentationPopover;
-    controller.popoverPresentationController.sourceView = sendToRoomTextField;
-    controller.popoverPresentationController.sourceRect = CGRectMake(100, 20, 0, 0);
-    [self presentViewController:controller animated:YES completion:nil];
 }
 
 
