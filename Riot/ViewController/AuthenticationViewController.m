@@ -21,6 +21,16 @@
 
 #import "AuthInputsView.h"
 #import "ForgotPasswordInputsView.h"
+#import "MasterTabBarController.h"
+
+
+
+@import Firebase;
+@import FirebaseAuth;
+@import FirebaseAuthUI;
+@import FirebaseGoogleAuthUI;
+@import FirebasePhoneAuthUI;
+
 
 @interface AuthenticationViewController ()
 {
@@ -31,12 +41,15 @@
      while we retry a login process against the matrix.org HS.
      */
     NSError *loginError;
+    NSString *verificationCodeID;
     
+    FUIAuth *authUI;
     /**
      The default country code used to initialize the mobile phone number input.
      */
     NSString *defaultCountryCode;
     BOOL firebseloginFailed;
+    BOOL isfirebseloginProgress;
     NSString * mailIdOnLogin;
     
     /**
@@ -81,7 +94,15 @@
 {
     [super viewDidLoad];
     [GIDSignIn sharedInstance].uiDelegate = self;
-   // [[GIDSignIn sharedInstance] signIn];
+    
+    authUI = [FUIAuth defaultAuthUI];
+    authUI.delegate = self;
+    NSArray<id<FUIAuthProvider>> *providers = @[
+                                                [[FUIGoogleAuth alloc] init],
+                                                [[FUIPhoneAuth alloc] initWithAuthUI:[FUIAuth defaultAuthUI]]
+                                            ];
+    authUI.providers = providers;
+    // [[GIDSignIn sharedInstance] signIn];
     self.mainNavigationItem.title = nil;
     self.rightBarButtonItem.title = NSLocalizedStringFromTable(@"auth_register", @"Vector", nil);
     
@@ -127,6 +148,7 @@
     authInputsView.hidden = YES;
     orLabel.hidden  = YES;
     self.submitButton.hidden = YES;
+    googleSignInButton.hidden = YES;
     
     // Observe user interface theme change.
     kRiotDesignValuesDidChangeThemeNotificationObserver = [[NSNotificationCenter defaultCenter] addObserverForName:kRiotDesignValuesDidChangeThemeNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *notif) {
@@ -136,6 +158,55 @@
     }];
     [self userInterfaceThemeDidChange];
 }
+
+-(void) showFireBaseLoginView {
+    UIViewController *authViewController = [authUI authViewController];
+    isfirebseloginProgress = true;
+    [self presentViewController:authViewController animated:false completion:nil];
+}
+
+-(void) showAlert {
+    UIAlertController * alert = [UIAlertController
+                                 alertControllerWithTitle:@"Wiresafe"
+                                 message:@"Please login to continue"
+                                 preferredStyle:UIAlertControllerStyleAlert];
+
+    UIAlertAction* yesButton = [UIAlertAction
+                                actionWithTitle:@"Ok"
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction * action) {
+                                    [self showFireBaseLoginView];
+                                }];
+
+    [alert addAction:yesButton];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)authUI:(FUIAuth *)authUI
+didSignInWithUser:(nullable FIRUser *)user
+         error:(nullable NSError *)error {
+    [self startActivityIndicator];
+    if(error) {
+        NSLog(@"error detail = %ld", error.code);
+        NSLog(@"error detail = %@", error.localizedDescription);
+        [self showAlert];
+    } else {
+    [user getIDTokenForcingRefresh:YES completion:^(NSString * _Nullable token, NSError * _Nullable error) {
+        if(error){
+            return ;
+        } else {
+            AuthInputsView *authInputsview = (AuthInputsView*)self.authInputsView;
+            authInputsview.passWordTextField.text = token;
+            authInputsview.userLoginTextField.text =user.uid;
+            [self setAuthType:MXKAuthenticationTypeLogin];
+            [super onButtonPressed:self.submitButton];
+            [self stopActivityIndicator];
+            isfirebseloginProgress = false;
+       }
+    }];
+    }
+}
+
 - (void)firebaseLoginWithCredential:(FIRAuthCredential *)credential {
     [self startActivityIndicator];
     [[FIRAuth auth] signInWithCredential:credential
@@ -145,13 +216,11 @@
                                       return;
                                   }
                                   [user getIDTokenForcingRefresh:YES completion:^(NSString * _Nullable token, NSError * _Nullable error) {
-                                      //:^(NSString * _Nullable token, NSError * _Nullable error) {
                                       if(error){
                                           return ;
                                       }
                                       AuthInputsView *authInputsview = (AuthInputsView*)self.authInputsView;
                                       authInputsview.passWordTextField.text = token;
-                                     id<FIRUserInfo> userInfo = user.providerData[0];
                                       
                                       authInputsview.userLoginTextField.text =user.uid;
                                       [self setAuthType:MXKAuthenticationTypeLogin];
@@ -161,6 +230,7 @@
                               }];
     
 }
+
 - (void)userInterfaceThemeDidChange
 {
     self.view.backgroundColor = kRiotSecondaryBgColor;
@@ -174,14 +244,14 @@
         if (self.homeServerTextField.placeholder)
         {
             self.homeServerTextField.attributedPlaceholder = [[NSAttributedString alloc]
-                                                             initWithString:self.homeServerTextField.placeholder
-                                                             attributes:@{NSForegroundColorAttributeName: kRiotPlaceholderTextColor}];
+                                                              initWithString:self.homeServerTextField.placeholder
+                                                              attributes:@{NSForegroundColorAttributeName: kRiotPlaceholderTextColor}];
         }
         if (self.identityServerTextField.placeholder)
         {
             self.identityServerTextField.attributedPlaceholder = [[NSAttributedString alloc]
-                                                             initWithString:self.identityServerTextField.placeholder
-                                                             attributes:@{NSForegroundColorAttributeName: kRiotPlaceholderTextColor}];
+                                                                  initWithString:self.identityServerTextField.placeholder
+                                                                  attributes:@{NSForegroundColorAttributeName: kRiotPlaceholderTextColor}];
         }
     }
     
@@ -224,30 +294,43 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    if ([MXKAccountManager sharedManager].accounts.count == 0) {
+        if(isfirebseloginProgress != true) {
+             [self showFireBaseLoginView];
+        }
+    } else {
+         [self dismissViewControllerAnimated:false completion:nil];
+    }
+    
     self.skipButton.hidden = YES;
     self.forgotPasswordButton.hidden = YES;
+   
     // Screen tracking (via Google Analytics)
-    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-    if (tracker)
-    {
-        [tracker set:kGAIScreenName value:@"Authentication"];
-        [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
-    }
+//    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+//    if (tracker)
+//    {
+//        [tracker set:kGAIScreenName value:@"Authentication"];
+//        [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+//    }
+    
     // [START auth_listener]
     self.handle = [[FIRAuth auth]
                    addAuthStateDidChangeListener:^(FIRAuth *_Nonnull auth, FIRUser *_Nullable user) {
+                   
                        // [START_EXCLUDE]
-                     //  [self setTitleDisplay:user];
-                     //  [self.tableView reloadData];
+                       //  [self setTitleDisplay:user];
+                       //  [self.tableView reloadData];
                        // [END_EXCLUDE]
                    }];
     // [END auth_listener]
-}
+    }
+   
+
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
- //    [START remove_auth_listener]
+    //    [START remove_auth_listener]
     [[FIRAuth auth] removeAuthStateDidChangeListener:_handle];
-   //  [END remove_auth_listener]
+    //  [END remove_auth_listener]
 }
 - (void)destroy
 {
@@ -259,6 +342,7 @@
         kRiotDesignValuesDidChangeThemeNotificationObserver = nil;
     }
 }
+
 
 - (void)setAuthType:(MXKAuthenticationType)authType
 {
@@ -364,7 +448,7 @@
     {
         // The right bar button is used to cancel the running request.
         self.rightBarButtonItem.title = NSLocalizedStringFromTable(@"cancel", @"Vector", nil);
-
+        
         // Remove the potential back button.
         self.mainNavigationItem.leftBarButtonItem = nil;
     }
@@ -393,6 +477,7 @@
         }
     }
 }
+
 
 - (IBAction)onButtonPressed:(id)sender
 {   [self dismissKeyboard];
@@ -489,7 +574,7 @@
             mailIdOnLogin =  [authInputsview getMailId];
             NSString *errorMsg = [self.authInputsView validateParameters];
             if(errorMsg != nil){
-               [self onFailureDuringAuthRequest:[NSError errorWithDomain:MXKAuthErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey:errorMsg}]];
+                [self onFailureDuringAuthRequest:[NSError errorWithDomain:MXKAuthErrorDomain code:0 userInfo:@{NSLocalizedDescriptionKey:errorMsg}]];
             }
             else{
                 [[FIRAuth auth] createUserWithEmail:mailIdOnLogin
@@ -503,7 +588,7 @@
                                              
                                          }];
             }
-           
+            
         }
         else if(self.authType == MXKAuthenticationTypeLogin){
             AuthInputsView *authInputsview = (AuthInputsView*)self.authInputsView;
@@ -630,21 +715,21 @@
 {
     // Check whether a third party identifiers has not been used
     if(firebseloginFailed){
-    AuthInputsView *authInputsview = (AuthInputsView*)self.authInputsView;
+        AuthInputsView *authInputsview = (AuthInputsView*)self.authInputsView;
         NSString * mailId =  mailIdOnLogin;
-    NSString *errorMsg = [self.authInputsView validateParameters];
-    if(errorMsg == nil){
-        [[FIRAuth auth] createUserWithEmail:mailId
-                                   password:self.authInputsView.password
-                                 completion:^(FIRUser *_Nullable user, NSError *_Nullable error) {
-                                     if(error != nil){
-                                         NSLog(@"firebase Login failed");
-                                     }else{
-                                         NSLog(@"firebase Login succefull");
-                                     }
-                                     
-                                 }];
-    }
+        NSString *errorMsg = [self.authInputsView validateParameters];
+        if(errorMsg == nil){
+            [[FIRAuth auth] createUserWithEmail:mailId
+                                       password:self.authInputsView.password
+                                     completion:^(FIRUser *_Nullable user, NSError *_Nullable error) {
+                                         if(error != nil){
+                                             NSLog(@"firebase Login failed");
+                                         }else{
+                                             NSLog(@"firebase Login succefull");
+                                         }
+                                         
+                                     }];
+        }
     }
     if ([self.authInputsView isKindOfClass:AuthInputsView.class])
     {
@@ -660,12 +745,12 @@
             alert = [UIAlertController alertControllerWithTitle:NSLocalizedStringFromTable(@"warning", @"Vector", nil) message:NSLocalizedStringFromTable(@"auth_add_email_and_phone_warning", @"Vector", nil) preferredStyle:UIAlertControllerStyleAlert];
             
             [alert addAction:[UIAlertAction actionWithTitle:[NSBundle mxk_localizedStringForKey:@"ok"]
-                                                             style:UIAlertActionStyleDefault
-                                                           handler:^(UIAlertAction * action) {
-                                                               
-                                                               [super onSuccessfulLogin:credentials];
-                                                               
-                                                           }]];
+                                                      style:UIAlertActionStyleDefault
+                                                    handler:^(UIAlertAction * action) {
+                                                        
+                                                        [super onSuccessfulLogin:credentials];
+                                                        
+                                                    }]];
             
             [self presentViewController:alert animated:YES completion:nil];
             return;
@@ -805,7 +890,7 @@
         
         // Refresh content view height
         self.contentViewHeightConstraint.constant += self.customServersContainer.frame.size.height;
-
+        
         // Scroll to display server options
         CGPoint offset = self.authenticationScrollView.contentOffset;
         offset.y += self.customServersContainer.frame.size.height;
@@ -871,7 +956,7 @@
     else
     {
         // Dismiss on successful login
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self dismissViewControllerAnimated:false completion:nil];
     }
 }
 

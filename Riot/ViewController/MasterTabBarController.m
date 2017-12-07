@@ -73,7 +73,7 @@
     _peopleViewController = [self.viewControllers objectAtIndex:TABBAR_PEOPLE_INDEX];
     _roomsViewController = [self.viewControllers objectAtIndex:TABBAR_ROOMS_INDEX];
     
-    
+  
     // Sanity check
     NSAssert(_homeViewController && _wireTransferViewController && _favouritesViewController && _peopleViewController && _roomsViewController, @"Something wrong in Main.storyboard");
 
@@ -344,11 +344,10 @@
     if (!self.authViewController && !isAuthViewControllerPreparing)
     {
         isAuthViewControllerPreparing = YES;
-        
+
         [[AppDelegate theDelegate] restoreInitialDisplay:^{
-            
             [self performSegueWithIdentifier:@"showAuth" sender:self];
-            
+
         }];
     }
 }
@@ -524,7 +523,25 @@
 }
 
 #pragma mark -
+-(void)showmasterView {
 
+    isAuthViewControllerPreparing = NO;
+    
+    authViewControllerObserver = [[NSNotificationCenter defaultCenter] addObserverForName:kMXKAccountManagerDidAddAccountNotification object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *notif) {
+        
+        _authViewController = nil;
+        
+        [[NSNotificationCenter defaultCenter] removeObserver:authViewControllerObserver];
+        authViewControllerObserver = nil;
+    }];
+    
+    // Forward parameters if any
+    if (authViewControllerRegistrationParameters)
+    {
+        _authViewController.externalRegistrationParameters = authViewControllerRegistrationParameters;
+        authViewControllerRegistrationParameters = nil;
+    }
+}
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showRoomDetails"] || [[segue identifier] isEqualToString:@"showContactDetails"])
@@ -546,6 +563,7 @@
             
             [_currentRoomViewController destroy];
             _currentRoomViewController = nil;
+            
         }
         else if (_currentContactDetailViewController)
         {

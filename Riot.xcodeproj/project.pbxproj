@@ -3515,7 +3515,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.riot.wiresafe.extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "81eb6c3c-c620-4a4e-8a68-822a82186545";
+				PROVISIONING_PROFILE = "1764cafa-b22c-4fce-80c6-5afcbd8c4624";
 				PROVISIONING_PROFILE_SPECIFIER = WiresafeDevExtension;
 				SKIP_INSTALL = YES;
 			};
@@ -3542,7 +3542,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.riot.wiresafe.extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "81eb6c3c-c620-4a4e-8a68-822a82186545";
+				PROVISIONING_PROFILE = "1764cafa-b22c-4fce-80c6-5afcbd8c4624";
 				PROVISIONING_PROFILE_SPECIFIER = WiresafeDevExtension;
 				SKIP_INSTALL = YES;
 			};
@@ -3569,7 +3569,9 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Casey LeBlanc (6336RBSP84)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Casey LeBlanc (6336RBSP84)";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 3786CYUYT4;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -3590,7 +3592,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "1b9d457d-4813-420a-b915-2f00c23753f2";
+				PROVISIONING_PROFILE = "1764cafa-b22c-4fce-80c6-5afcbd8c4624";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3617,7 +3619,9 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Casey LeBlanc (6336RBSP84)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Casey LeBlanc (6336RBSP84)";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = 3786CYUYT4;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -3630,7 +3634,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "1b9d457d-4813-420a-b915-2f00c23753f2";
+				PROVISIONING_PROFILE = "1764cafa-b22c-4fce-80c6-5afcbd8c4624";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -3658,8 +3662,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.riot.wiresafe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1b9d457d-4813-420a-b915-2f00c23753f2";
-				PROVISIONING_PROFILE_SPECIFIER = WiresafeDev;
+				PROVISIONING_PROFILE = "1764cafa-b22c-4fce-80c6-5afcbd8c4624";
+				PROVISIONING_PROFILE_SPECIFIER = wiresafe_appdevelopment_profile;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -3685,8 +3689,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.riot.wiresafe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1b9d457d-4813-420a-b915-2f00c23753f2";
-				PROVISIONING_PROFILE_SPECIFIER = WiresafeDev;
+				PROVISIONING_PROFILE = "1764cafa-b22c-4fce-80c6-5afcbd8c4624";
+				PROVISIONING_PROFILE_SPECIFIER = wiresafe_appdevelopment_profile;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -3695,7 +3699,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Casey LeBlanc (6336RBSP84)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 3786CYUYT4;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3711,6 +3716,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.matrix.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Riot.app/Riot";
 			};
 			name = Debug;
@@ -3719,7 +3725,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Casey LeBlanc (6336RBSP84)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 3786CYUYT4;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3731,6 +3738,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.matrix.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Riot.app/Riot";
 			};
 			name = Release;

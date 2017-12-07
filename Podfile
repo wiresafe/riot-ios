@@ -41,6 +41,9 @@ pod 'DTCoreText', :inhibit_warnings => true
 pod 'Firebase/Auth'
 pod 'Firebase/Core'
 pod 'GoogleSignIn'
+pod 'FirebaseUI/Auth'
+pod 'FirebaseUI/Phone'
+pod 'FirebaseUI/Google'
     
 end
 

@@ -27,6 +27,8 @@
 #import "RoomViewController.h"
 #import "ContactDetailsViewController.h"
 
+@import FirebaseAuthUI;
+
 #define TABBAR_HOME_INDEX         0
 #define TABBAR_WIRETRANSFER_INDEX 1
 #define TABBAR_FAVOURITES_INDEX   2
@@ -34,7 +36,7 @@
 #define TABBAR_ROOMS_INDEX        4
 #define TABBAR_COUNT              5
 
-@interface MasterTabBarController : UITabBarController
+@interface MasterTabBarController : UITabBarController <FIRAuthUIDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsBarButtonItem;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *searchBarButtonIem;

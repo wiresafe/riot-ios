@@ -60,6 +60,7 @@ extern NSString *const kAppDelegateNetworkStatusDidChangeNotification;
 
 @property (strong, nonatomic) NSString *appVersion;
 @property (strong, nonatomic) NSString *build;
+@property (nonatomic, strong) MXKAuthInputsView *AuthInputsView;
 
 @property (nonatomic) BOOL isAppForeground;
 @property (nonatomic) BOOL isOffline;

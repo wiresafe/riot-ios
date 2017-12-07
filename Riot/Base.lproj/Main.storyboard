@@ -15,7 +15,7 @@
             <objects>
                 <navigationController id="RMx-3f-FxP" userLabel="HomeNav" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Pmd-2v-anx">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -203,7 +203,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sdk-Qx-Eut">
-                                <rect key="frame" x="16" y="72" width="352" height="546"/>
+                                <rect key="frame" x="16" y="76" width="352" height="542"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bank Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8GR-NI-gg4">
                                         <rect key="frame" x="20" y="20" width="300" height="30"/>
@@ -519,7 +519,7 @@
             <objects>
                 <navigationController id="qAW-wR-KyU" customClass="RiotNavigationController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="r5V-3P-3Lg">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -553,7 +553,7 @@
             <objects>
                 <navigationController title="RoomNav" id="vC3-pB-5Vb" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="DjV-YW-jjY">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -630,7 +630,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WDS-Ip-RQ9" customClass="RiotNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="CtR-n9-ztG">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -667,7 +667,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZZb-IS-a1F" customClass="RiotNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MHE-SG-tnL">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="48"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -733,8 +733,8 @@
         <image name="tab_rooms_selected.png" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8em-2V-B3a"/>
-        <segue reference="0ws-cL-0tk"/>
+        <segue reference="Tfl-tq-LQp"/>
+        <segue reference="tk8-vF-K4T"/>
         <segue reference="ziz-Xl-QVg"/>
         <segue reference="mFs-HA-7Oo"/>
         <segue reference="fNQ-S3-DbZ"/>

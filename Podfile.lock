@@ -56,6 +56,13 @@ PODS:
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
     - nanopb (~> 0.3)
   - FirebaseInstanceID (2.0.4)
+  - FirebaseUI/Auth (4.2.0):
+    - Firebase/Auth (~> 4.0)
+  - FirebaseUI/Google (4.2.0):
+    - FirebaseUI/Auth
+    - GoogleSignIn (~> 4.0)
+  - FirebaseUI/Phone (4.2.0):
+    - FirebaseUI/Auth
   - GBDeviceInfo (4.4.0):
     - GBDeviceInfo/Core (= 4.4.0)
   - GBDeviceInfo/Core (4.4.0)
@@ -128,6 +135,9 @@ DEPENDENCIES:
   - DTCoreText
   - Firebase/Auth
   - Firebase/Core
+  - FirebaseUI/Auth
+  - FirebaseUI/Google
+  - FirebaseUI/Phone
   - GBDeviceInfo (~> 4.4.0)
   - GoogleAnalytics
   - GoogleSignIn
@@ -147,6 +157,7 @@ SPEC CHECKSUMS:
   FirebaseAuth: d7f047fbeab98062b98ea933b8d934e0fb1190e2
   FirebaseCore: 69b1a5ac5f857ba6d5fd9d5fe794f4786dd5e579
   FirebaseInstanceID: 70c2b877e9338971b2429ea5a4293df6961aa44e
+  FirebaseUI: 76877afa8aa122ea135aa51a10fc7d622a82d096
   GBDeviceInfo: 2ec90c6808d063061b16773ec8e857257058dc5d
   GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
   GoogleSignIn: 8c599fc10d25b2af86a3f82fd9631e863f2b1400
@@ -163,6 +174,6 @@ SPEC CHECKSUMS:
   Realm: 0ef72b837fb67e9f4b098bac771ddd72c7fdbb69
   WebRTC: 1e9a85bf75509eec44be6478c64e9de65ac82332
 
-PODFILE CHECKSUM: d79352e63400e685e4b36b27472573a3f2cc538f
+PODFILE CHECKSUM: a45a493847408f1d23e2db824ce6d0c97c90019e
 
 COCOAPODS: 1.2.1

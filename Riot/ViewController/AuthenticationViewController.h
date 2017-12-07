@@ -18,8 +18,12 @@
 #import <MatrixKit/MatrixKit.h>
 @import Firebase;
 @import GoogleSignIn;
+@import FirebaseAuth;
+@import FirebaseAuthUI;
+@import FirebaseGoogleAuthUI;
+@import FirebasePhoneAuthUI;
 
-@interface AuthenticationViewController : MXKAuthenticationViewController <MXKAuthenticationViewControllerDelegate , GIDSignInUIDelegate>
+@interface AuthenticationViewController : MXKAuthenticationViewController <MXKAuthenticationViewControllerDelegate , GIDSignInUIDelegate, FIRAuthUIDelegate>
 
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
 
@@ -41,6 +45,11 @@
 
 @property (weak, nonatomic) IBOutlet UIView *homeServerSeparator;
 @property (weak, nonatomic) IBOutlet UIView *identityServerSeparator;
+
+
+
+
+
 - (void)firebaseLoginWithCredential:(FIRAuthCredential *)credential;
 @end
 

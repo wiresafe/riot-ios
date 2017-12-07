@@ -55,6 +55,8 @@
 
 #include <MatrixSDK/MXUIKitBackgroundModeHandler.h>
 
+#import "AuthInputsView.h"
+
 #define CALL_STATUS_BAR_HEIGHT 44
 
 #define MAKE_STRING(x) #x
@@ -62,6 +64,7 @@
 // [START auth_import]
 @import Firebase;
 @import GoogleSignIn;
+@import FirebaseAuth;
 
 // [END auth_import]
 
@@ -285,6 +288,7 @@ NSString *const kAppDelegateNetworkStatusDidChangeNotification = @"kAppDelegateN
     // [END firebase_configure]
     [GIDSignIn sharedInstance].clientID = [FIRApp defaultApp].options.clientID;
     [GIDSignIn sharedInstance].delegate = self;
+
 #ifdef DEBUG
     // log the full launchOptions only in DEBUG
     NSLog(@"[AppDelegate] didFinishLaunchingWithOptions: %@", launchOptions);
@@ -363,15 +367,18 @@ NSString *const kAppDelegateNetworkStatusDidChangeNotification = @"kAppDelegateN
     
     return YES;
 }
+
 - (void)signIn:(GIDSignIn *)signIn
 didSignInForUser:(GIDGoogleUser *)user
      withError:(NSError *)error {
     // [START_EXCLUDE]
     AuthenticationViewController *controller = (AuthenticationViewController*) [GIDSignIn sharedInstance].uiDelegate;
+
     // [END_EXCLUDE]
     if (error == nil) {
         // [START google_credential]
         GIDAuthentication *authentication = user.authentication;
+      
         FIRAuthCredential *credential =
         [FIRGoogleAuthProvider credentialWithIDToken:authentication.idToken
                                          accessToken:authentication.accessToken];
@@ -386,30 +393,40 @@ didSignInForUser:(GIDGoogleUser *)user
         // [END_EXCLUDE]
     }
 }
+
 - (void)signIn:(GIDSignIn *)signIn
 didDisconnectWithUser:(GIDGoogleUser *)user
      withError:(NSError *)error {
     // Perform any operations when the user disconnects from app here.
     // ...
 }
-- (BOOL)application:(nonnull UIApplication *)application
-            openURL:(nonnull NSURL *)url
-            options:(nonnull NSDictionary<NSString *, id> *)options {
-    // [END new_delegate]
-    return [self application:application
-                     openURL:url
-            // [START new_options]
-           sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
-                  annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];
+
+- (BOOL)application:(UIApplication *)app
+            openURL:(NSURL *)url
+            options:(NSDictionary *)options {
+    NSString *sourceApplication = options[UIApplicationOpenURLOptionsSourceApplicationKey];
+    
+    if ([[FIRAuth auth] canHandleURL:url]) {
+        return YES;
+    }
+    return [[FUIAuth defaultAuthUI] handleOpenURL:url sourceApplication:sourceApplication];
+
 }
+
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
+   
+    
+    if ([[FIRAuth auth] canHandleURL:url]) {
+        return YES;
+    }
     return [[GIDSignIn sharedInstance] handleURL:url
                                sourceApplication:sourceApplication
                                       annotation:annotation];
 }
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     NSLog(@"[AppDelegate] applicationWillResignActive");
@@ -982,12 +999,15 @@ didDisconnectWithUser:(GIDGoogleUser *)user
 
 - (void)application:(UIApplication*)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
+    
+    [[FIRAuth auth] setAPNSToken:deviceToken type:FIRAuthAPNSTokenTypeProd];
+  
     NSUInteger len = ((deviceToken.length > 8) ? 8 : deviceToken.length / 2);
     NSLog(@"[AppDelegate] Got APNS token! (%@ ...)", [deviceToken subdataWithRange:NSMakeRange(0, len)]);
     
     MXKAccountManager* accountManager = [MXKAccountManager sharedManager];
     [accountManager setApnsDeviceToken:deviceToken];
-    
+
     isAPNSRegistered = YES;
     
     if (self.registrationForRemoteNotificationsCompletion)
@@ -1019,6 +1039,7 @@ didDisconnectWithUser:(GIDGoogleUser *)user
 
 - (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
+
 #ifdef DEBUG
     // log the full userInfo only in DEBUG
     NSLog(@"[AppDelegate] didReceiveRemoteNotification: %@", userInfo);
@@ -1110,6 +1131,11 @@ didDisconnectWithUser:(GIDGoogleUser *)user
         }
     }
     completionHandler(UIBackgroundFetchResultNoData);
+
+    if ([[FIRAuth auth] canHandleNotification:userInfo]) {
+        completionHandler(UIBackgroundFetchResultNoData);
+        return;
+    }
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
